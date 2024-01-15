@@ -1,8 +1,9 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Navbar({ auth }) {
 	return (
-		<>
+		<div className='navbar'>
+			<h1>FlashcardApp</h1>
 			<nav>
 				<Link to='/'>Home</Link>
 				{auth.isAuthenticated ? (
@@ -12,7 +13,6 @@ export default function Navbar({ auth }) {
 				) : null}
 				<Link to='/login'>Login</Link>
 			</nav>
-			<Outlet />
-		</>
+		</div>
 	);
 }

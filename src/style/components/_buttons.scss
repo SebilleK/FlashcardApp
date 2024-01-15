@@ -1,0 +1,15 @@
+.login-btn {
+	padding: 0.5rem 1rem;
+	background-color: var(--bg-secondary);
+	color: var(--text);
+	border: var(--white) 1px solid;
+	border-radius: 5px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--text);
+		color: var(--white);
+        scale: 1.1;
+		transition: 0.2s all ease;
+	}
+}

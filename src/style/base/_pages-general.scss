@@ -1,0 +1,16 @@
+/* All pages shared styles */
+
+body {
+	background-color: var(--bg-primary);
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2rem;
+	padding: 1.5rem;
+	height: 80vh;
+	background-color: var(--bg-secondary);
+	border-radius: 10px;
+}

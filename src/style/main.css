@@ -1,0 +1,129 @@
+/* Page reset and text presets */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: var(--text);
+  font-size: 3rem;
+}
+
+p,
+a {
+  color: var(--text);
+  font-size: 1.7rem;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  color: var(--text);
+  transition: all 0.5s ease;
+}
+
+/* All pages shared styles */
+body {
+  background-color: var(--bg-primary);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  padding: 1.5rem;
+  height: 80vh;
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+/* Typography and Variables */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --text: #37298f;
+  --white: #ffffff;
+  --bg-primary: #d9f5fa;
+  --bg-secondary: #61eaff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: var(--bg-secondary);
+}
+.navbar nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* responsive */
+footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.2rem;
+  background: var(--bg-secondary);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 5rem;
+  padding: 2rem 5rem;
+  border: 2px solid var(--white);
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--white);
+}
+.login-form input {
+  padding: 0.5rem 1rem;
+}
+
+.login-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-secondary);
+  color: var(--text);
+  border: var(--white) 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-btn:hover {
+  background-color: var(--text);
+  color: var(--white);
+  scale: 1.1;
+  transition: 0.2s all ease;
+}
+
+.homepage .intro {
+  display: flex;
+  align-items: center;
+  margin: 2rem;
+  gap: 2.5rem;
+}
+.homepage .intro img {
+  max-width: 650px;
+  height: 100%;
+  border-radius: 10px;
+}
+.homepage .intro-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

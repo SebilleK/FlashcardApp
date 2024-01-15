@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { login, loginFailed, setUserData } from '../rtk/authSlice';
+import { login, loginFailed, setUserData } from '../authentication/authSlice';
 
 export default function LoginLogoutpage() {
 	const dispatch = useDispatch();
@@ -39,18 +39,18 @@ export default function LoginLogoutpage() {
 	}
 
 	return (
-		<>
-			<h1>Loginpage</h1>
+		<section className='loginpage'>
+			<h1>Login</h1>
 
-			<form action=''>
+			<form action='' className='login-form'>
 				<label htmlFor='username'>Username</label>
 				<input type='text' name='username' id='username' />
 				<label htmlFor='password'>Password</label>
 				<input type='password' name='password' id='password' />
-				<button type='button' onClick={checkLogin}>
+				<button className='login-btn' type='button' onClick={checkLogin}>
 					Login
 				</button>
 			</form>
-		</>
+		</section>
 	);
 }
