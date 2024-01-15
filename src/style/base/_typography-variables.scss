@@ -3,12 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
 body {
-    font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 :root {
-    --text: #37298f;
-    --white: #ffffff;
-    --bg-primary: #d9f5fa;
-    --bg-secondary: #61eaff;
+	--text: #37298f;
+	--warning: #b51515;
+	--white: #ffffff;
+	--bg-primary: #ace5f2;
+	--bg-items: #625de9;
+	--bg-degraded: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
 }

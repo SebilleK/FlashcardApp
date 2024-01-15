@@ -8,11 +8,13 @@ const authSlice = createSlice({
 	initialState: {
 		isAuthenticated: !!storedUser, // Set to true if there's a stored user, otherwise false
 		user: storedUser || null,
+		loginError: false, // login error if failed login => for feedback on login page
 	},
 	reducers: {
 		login: (state, action) => {
 			state.isAuthenticated = true;
 			state.user = action.payload;
+			state.loginError = false;
 
 			// save user info in local storage (refresh =/= logout)
 
@@ -21,6 +23,7 @@ const authSlice = createSlice({
 		logout: state => {
 			state.isAuthenticated = false;
 			state.user = null;
+			state.loginError = false;
 
 			// remove user info from local storage
 			localStorage.removeItem('user');
@@ -28,7 +31,7 @@ const authSlice = createSlice({
 		loginFailed: state => {
 			state.isAuthenticated = false;
 			state.user = null;
-
+			state.loginError = true;
 			// remove user info from local storage
 			localStorage.removeItem('user');
 		},

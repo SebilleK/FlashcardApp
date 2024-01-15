@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { login, loginFailed, setUserData } from '../authentication/authSlice';
+import { login, logout, loginFailed, setUserData } from '../authentication/authSlice';
+import { Link } from 'react-router-dom';
 
 export default function LoginLogoutpage() {
 	const dispatch = useDispatch();
 	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 	const userData = useSelector(state => state.auth.userData);
+	const loginError = useSelector(state => state.auth.loginError);
 
 	useEffect(() => {
 		const fetchUserData = async () => {
@@ -40,17 +41,34 @@ export default function LoginLogoutpage() {
 
 	return (
 		<section className='loginpage'>
-			<h1>Login</h1>
-
-			<form action='' className='login-form'>
-				<label htmlFor='username'>Username</label>
-				<input type='text' name='username' id='username' />
-				<label htmlFor='password'>Password</label>
-				<input type='password' name='password' id='password' />
-				<button className='login-btn' type='button' onClick={checkLogin}>
-					Login
-				</button>
-			</form>
+			{isAuthenticated ? (
+				<>
+					<h1>Welcome</h1>
+					<div className='login-info'>
+						<p>You are currently logged in.</p>
+						<p>
+							Check out your <Link to='/perfil'>profile</Link>, <Link to='/study'>study</Link> or log out below.
+						</p>
+					</div>
+					<button className='logout-btn' onClick={() => dispatch(logout())}>
+						↩️ Logout
+					</button>
+				</>
+			) : (
+				<>
+					<h1>Login</h1>
+					<form action='' className='login-form'>
+						<label htmlFor='username'>Username</label>
+						<input type='text' name='username' id='username' />
+						<label htmlFor='password'>Password</label>
+						<input type='password' name='password' id='password' />
+						<button className='login-btn' type='button' onClick={checkLogin}>
+							🔐 Login
+						</button>
+					</form>
+					{loginError && <p className='error-message'>Login failed. Please check your credentials and try again.</p>}
+				</>
+			)}
 		</section>
 	);
 }

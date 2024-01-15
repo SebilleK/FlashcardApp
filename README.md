@@ -1,8 +1,15 @@
-# React + Vite
+# [in development]
+# FlashcardApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FlashcardApp is a web application designed for reviewing question-answer flashcards based on Spaced Repetition Systems (SRS). Users can create and organize their flashcards into decks and study them, facilitating the learning and retention of diverse information. The application operates in a manner similar to a simplified version of popular tools like Anki ([AnkiWeb](https://apps.ankiweb.net/)) or Brainscape ([Brainscape](https://www.brainscape.com/)), for smaller sets of information.
 
-Currently, two official plugins are available:
+This application is being developed as a final project for a frontend course.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+
+- React (with Routing for navigation and Redux for state management)
+- JSON-Server API (simulates all information used in the app for each user — personal info & decks/flashcards)
+
+## Functionalities
+
+[TBA]

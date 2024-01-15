@@ -11,6 +11,7 @@ section {
 	margin: 2rem;
 	padding: 1.5rem;
 	height: 80vh;
-	background-color: var(--bg-secondary);
+	background: var(--bg-degraded);
+	border: 2px solid var(--white);
 	border-radius: 10px;
 }

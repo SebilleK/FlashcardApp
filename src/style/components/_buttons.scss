@@ -1,15 +1,15 @@
-.login-btn {
+.login-btn,
+.logout-btn {
 	padding: 0.5rem 1rem;
-	background-color: var(--bg-secondary);
-	color: var(--text);
+	background-color: var(--bg-items);
+	color: var(--white);
 	border: var(--white) 1px solid;
+	font-weight: bold;
 	border-radius: 5px;
 	cursor: pointer;
 
 	&:hover {
-		background-color: var(--text);
-		color: var(--white);
-        scale: 1.1;
+		scale: 1.1;
 		transition: 0.2s all ease;
 	}
 }

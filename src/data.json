@@ -1,93 +1,97 @@
 {
 	"users": [
 		{
-			"username": "user1",
-			"password": "password1",
+			"id": 0,
+			"username": "random-guy",
+			"password": "random-password",
+			"email": "random2821@email.com",
 			"decks": [
 				{
+					"id": 0,
 					"name": "Math Formulas",
+					"category": "",
 					"flashcards": [
-						{ "question": "Pythagorean Theorem", "answer": "a² + b² = c²" },
-						{ "question": "Quadratic Formula", "answer": "x = (-b ± √(b² - 4ac)) / 2a" },
-						{ "question": "Circle Area", "answer": "A = πr²" },
-						{ "question": "Prime Numbers", "answer": "Numbers greater than 1 that have no divisors other than 1 and itself" }
+						{ "id": 0, "question": "Pythagorean Theorem", "answer": "a² + b² = c²" },
+						{ "id": 1, "question": "Quadratic Formula", "answer": "x = (-b ± √(b² - 4ac)) / 2a" },
+						{ "id": 2, "question": "Circle Area", "answer": "A = πr²" },
+						{ "id": 3, "question": "Prime Numbers", "answer": "Numbers greater than 1 that have no divisors other than 1 and itself" }
 					]
 				},
 				{
+					"id": 1,
 					"name": "English Vocabulary",
+					"category": "",
 					"flashcards": [
-						{ "question": "Ubiquitous", "answer": "Present, appearing, or found everywhere" },
-						{ "question": "Serendipity", "answer": "The occurrence and development of events by chance in a happy or beneficial way" },
-						{ "question": "Ephemeral", "answer": "Lasting for a very short time" },
-						{ "question": "Quixotic", "answer": "Exceedingly idealistic; unrealistic and impractical" }
+						{ "id": 4, "question": "Ubiquitous", "answer": "Present, appearing, or found everywhere" },
+						{ "id": 5, "question": "Serendipity", "answer": "The occurrence and development of events by chance in a happy or beneficial way" },
+						{ "id": 6, "question": "Ephemeral", "answer": "Lasting for a very short time" },
+						{ "id": 7, "question": "Quixotic", "answer": "Exceedingly idealistic; unrealistic and impractical" }
 					]
 				},
 				{
+					"id": 2,
 					"name": "World Capitals",
+					"category": "",
 					"flashcards": [
-						{ "question": "Paris", "answer": "France" },
-						{ "question": "Tokyo", "answer": "Japan" },
-						{ "question": "Berlin", "answer": "Germany" },
-						{ "question": "Cairo", "answer": "Egypt" },
-						{ "question": "Ashgabat", "answer": "Turkmenistan" },
-						{ "question": "Lisboa", "answer": "Portugal" }
+						{ "id": 8, "question": "Paris", "answer": "France" },
+						{ "id": 9, "question": "Tokyo", "answer": "Japan" },
+						{ "id": 10, "question": "Berlin", "answer": "Germany" },
+						{ "id": 11, "question": "Cairo", "answer": "Egypt" },
+						{ "id": 12, "question": "Ashgabat", "answer": "Turkmenistan" },
+						{ "id": 13, "question": "Lisboa", "answer": "Portugal" }
 					]
 				}
 			]
 		},
 		{
-			"username": "user2",
-			"password": "password2",
+			"id": 1,
+			"username": "student",
+			"password": "student-password",
+			"email": "student2312@uni-edu.com",
 			"decks": [
 				{
+					"id": 3,
 					"name": "Science Facts",
+					"category": "",
 					"flashcards": [
-						{ "question": "Photosynthesis", "answer": "Process used by plants to convert light energy into chemical energy" },
-						{ "question": "Newton's Laws", "answer": "Three laws of motion that form the basis for classical mechanics" },
-						{ "question": "Mitosis", "answer": "Process of cell division that results in two identical daughter cells" },
-						{ "question": "Chemical Elements", "answer": "Basic forms of matter that cannot be broken down into simpler substances" }
+						{ "id": 14, "question": "Photosynthesis", "answer": "Process used by plants to convert light energy into chemical energy" },
+						{ "id": 15, "question": "Newton's Laws", "answer": "Three laws of motion that form the basis for classical mechanics" },
+						{ "id": 16, "question": "Mitosis", "answer": "Process of cell division that results in two identical daughter cells" },
+						{ "id": 17, "question": "Chemical Elements", "answer": "Basic forms of matter that cannot be broken down into simpler substances" }
 					]
 				},
 				{
+					"id": 4,
 					"name": "Spanish Vocabulary",
+					"category": "",
 					"flashcards": [
-						{ "question": "Hola", "answer": "Hello" },
-						{ "question": "Casa", "answer": "House" },
-						{ "question": "Viaje", "answer": "Journey" },
-						{ "question": "Comida", "answer": "Food" }
+						{ "id": 18, "question": "Hola", "answer": "Hello" },
+						{ "id": 19, "question": "Casa", "answer": "House" },
+						{ "id": 20, "question": "Viaje", "answer": "Journey" },
+						{ "id": 21, "question": "Comida", "answer": "Food" }
 					]
 				}
 			]
 		},
 		{
-			"username": "user3",
-			"password": "password3",
-			"decks": []
-		},
-		{
-			"username": "user4",
-			"password": "password4",
-			"decks": []
-		},
-		{
-			"username": "user5",
-			"password": "password5",
-			"decks": []
-		},
-		{
-			"username": "user6",
-			"password": "password6",
-			"decks": []
-		},
-		{
-			"username": "user7",
-			"password": "password7",
-			"decks": []
-		},
-		{
-			"username": "user8",
-			"password": "password8",
-			"decks": []
+			"id": 2,
+			"username": "test_user",
+			"password": "test_password",
+			"email": "test_user@email.com",
+			"decks": [
+				{
+					"id": 5,
+					"name": "Informação de Teste",
+					"category": "",
+					"flashcards": [
+						{ "id": 22, "question": "Pergunta Teste", "answer": "Resposta Teste" },
+						{ "id": 23, "question": "Pergunta Teste #2", "answer": "Resposta Teste #2" },
+						{ "id": 24, "question": "Pergunta Teste #3", "answer": "Resposta Teste #3" },
+						{ "id": 25, "question": "Pergunta Teste #4", "answer": "Resposta Teste #4" },
+						{ "id": 26, "question": "Pergunta Teste #5", "answer": "Resposta Teste #5" }
+					]
+				}
+			]
 		}
 	]
 }
