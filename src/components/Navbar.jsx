@@ -11,7 +11,7 @@ export default function Navbar({ auth }) {
 						<Link to='/study'>Study</Link> <Link to='/perfil'>Perfil</Link>
 					</>
 				) : null}
-				<Link to='/login'>Login</Link>
+				<Link to='/login'>{auth.isAuthenticated ? 'Logout' : 'Login'}</Link>
 			</nav>
 		</div>
 	);

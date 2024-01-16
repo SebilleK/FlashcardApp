@@ -1,19 +1,20 @@
 .homepage {
 	.intro {
-        display: flex;
-        align-items: center;
-        margin: 2rem;
-        gap: 2.5rem;
+		display: flex;
+		align-items: center;
+		margin: 2rem;
+		gap: 2.5rem;
 		img {
 			max-width: 650px;
 			height: 100%;
-            border-radius: 10px;
+			border: 2px solid var(--white);
+			border-radius: 10px;
 		}
 	}
 
-    .intro-info {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-    }
+	.intro-info {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
 }

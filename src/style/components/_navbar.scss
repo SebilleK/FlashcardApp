@@ -5,7 +5,8 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0.5rem 2rem;
-	background: var(--bg-degraded);
+	background: var(--bg-items);
+	border-bottom: 2px solid var(--white);
 
 	nav {
 		display: flex;

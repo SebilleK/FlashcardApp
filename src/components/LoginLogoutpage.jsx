@@ -43,7 +43,7 @@ export default function LoginLogoutpage() {
 		<section className='loginpage'>
 			{isAuthenticated ? (
 				<>
-					<h1>Welcome</h1>
+					<h1>Welcome!😸</h1>
 					<div className='login-info'>
 						<p>You are currently logged in.</p>
 						<p>
