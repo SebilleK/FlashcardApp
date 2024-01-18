@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux';
+import StudyingReviewPanel from '../features/study/StudyingReviewPanel';
 export default function ReviewArea() {
 	const activeDeckId = useSelector(state => state.study.activeDeck);
 	const userDecks = useSelector(state => state.auth.user.decks);
+	const isStudying = useSelector(state => state.study.isStudying);
 
 	// finding the deck to study with the active deck id
 
@@ -9,7 +11,9 @@ export default function ReviewArea() {
 
 	// if active studying, return other component possibly...(TO ADD)
 
-	if (activeDeck) {
+	if (activeDeck && isStudying) {
+		return <StudyingReviewPanel />;
+	} else if (activeDeck) {
 		return (
 			<>
 				<article className='review-area'>

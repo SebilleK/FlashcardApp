@@ -14,7 +14,6 @@ const studySlice = createSlice({
 			state.activeDeck = action.payload;
 		},
         startStudying: (state, action) => {
-            state.activeDeck = action.payload;
 			state.currentCardIndex = 0;
 			state.isStudying = true;
 		},
