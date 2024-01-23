@@ -40,6 +40,12 @@
 						{ "id": 12, "question": "Ashgabat", "answer": "Turkmenistan" },
 						{ "id": 13, "question": "Lisboa", "answer": "Portugal" }
 					]
+				},
+				{
+					"id": 1000,
+					"name": "Review Flashcards",
+					"category": "",
+					"flashcards": []
 				}
 			]
 		},
@@ -70,6 +76,12 @@
 						{ "id": 20, "question": "Viaje", "answer": "Journey" },
 						{ "id": 21, "question": "Comida", "answer": "Food" }
 					]
+				},
+				{
+					"id": 1001,
+					"name": "Review Flashcards",
+					"category": "",
+					"flashcards": []
 				}
 			]
 		},
@@ -90,6 +102,12 @@
 						{ "id": 25, "question": "Pergunta Teste #4", "answer": "Resposta Teste #4" },
 						{ "id": 26, "question": "Pergunta Teste #5", "answer": "Resposta Teste #5" }
 					]
+				},
+				{
+					"id": 1002,
+					"name": "Review Flashcards",
+					"category": "",
+					"flashcards": []
 				}
 			]
 		}

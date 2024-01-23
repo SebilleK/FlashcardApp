@@ -9,12 +9,15 @@ const authSlice = createSlice({
 		isAuthenticated: !!storedUser, // Set to true if there's a stored user, otherwise false
 		user: storedUser || null,
 		loginError: false, // login error if failed login => for feedback on login page
+		/* 		userDecks: null, // update when user logs in , consists of all user decks!!!
+ No need to do this here! */
 	},
 	reducers: {
 		login: (state, action) => {
 			state.isAuthenticated = true;
 			state.user = action.payload;
 			state.loginError = false;
+			/* state.userDecks = storedUser.decks || null; */
 
 			// save user info in local storage (refresh =/= logout)
 
@@ -38,9 +41,12 @@ const authSlice = createSlice({
 		setUserData: (state, action) => {
 			state.userData = action.payload;
 		},
+		updateDecks: (state, action) => {
+			state.user.decks = action.payload;
+		},
 	},
 });
 
-export const { login, logout, loginFailed, setUserData } = authSlice.actions;
+export const { login, logout, loginFailed, setUserData, updateDecks } = authSlice.actions;
 
 export default authSlice.reducer;

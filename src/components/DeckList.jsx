@@ -13,11 +13,15 @@ export default function DeckList() {
 	return (
 		<article className='decks-list'>
 			<ul>
-				{decks.map(deck => (
-					<li onClick={() => handleDeckClick(deck.id)} key={deck.id}>
-						{deck.name}
-					</li>
-				))}
+				{decks.map(
+					deck =>
+						// if deck has less than 1 flashcard dont display
+						deck.flashcards.length > 0 && (
+							<li onClick={() => handleDeckClick(deck.id)} key={deck.id}>
+								{deck.name}
+							</li>
+						),
+				)}
 			</ul>
 		</article>
 	);
