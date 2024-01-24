@@ -7,7 +7,7 @@ function App() {
 	const auth = useSelector(state => state.auth);
 
 	return (
-		<main className='App'>
+		<main>
 			<Navbar auth={auth} />
 			<Outlet />
 			<Footer />

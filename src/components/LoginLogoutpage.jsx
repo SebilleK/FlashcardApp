@@ -39,11 +39,8 @@ export default function LoginLogoutpage() {
 		}
 	}
 
-	return (
-		<section className='loginpage'>
-			{isAuthenticated ? (
-				<>
-					<h1>Welcome!😸</h1>
+	{
+		/* <h1>Welcome!😸</h1>
 					<div className='login-info'>
 						<p>You are currently logged in.</p>
 						<p>
@@ -52,11 +49,10 @@ export default function LoginLogoutpage() {
 					</div>
 					<button className='logout-btn' onClick={() => dispatch(logout())}>
 						↩️ Logout
-					</button>
-				</>
-			) : (
-				<>
-					<h1>Login</h1>
+					</button> */
+	}
+	{
+		/* <h1>Login</h1>
 					<form action='' className='login-form'>
 						<label htmlFor='username'>Username</label>
 						<input type='text' name='username' id='username' />
@@ -66,9 +62,73 @@ export default function LoginLogoutpage() {
 							🔐 Login
 						</button>
 					</form>
-					{loginError && <p className='error-message'>Login failed. Please check your credentials and try again.</p>}
+					{loginError && <p className='error-message'>Login failed. Please check your credentials and try again.</p>} */
+	}
+
+	return (
+		<>
+			{isAuthenticated ? (
+				<>
+					<section class='text-gray-600 body-font bg-gray-100 min-h-screen flex items-center justify-center'>
+						<div class='container mx-auto flex px-5 py-24'>
+							<div class='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mx-auto w-full md:mt-0'>
+								<h2 class='text-gray-900 text-lg font-medium title-font mb-10'>Logout</h2>
+								<p class='text-gray-900 font-medium title-font mb-10'>You are currently logged in.</p>
+								<p class='text-gray-900 font-medium title-font mb-10'>
+									Check out your <Link to='/perfil'>profile</Link>, <Link to='/study'>study</Link> or log out below.
+								</p>
+
+								<div class='relative mb-4'>
+									<button class='text-white bg-blue-500 py-1 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg' onClick={() => dispatch(logout())}>
+										↩️ Logout
+									</button>
+								</div>
+
+								{loginError && <p class='text-red-500'>Login failed. Please check your credentials and try again.</p>}
+							</div>
+						</div>
+					</section>
 				</>
+			) : (
+				<section class='text-gray-600 body-font bg-gray-100 min-h-screen flex items-center justify-center'>
+					<div class='container mx-auto flex px-5 py-24'>
+						<div class='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mx-auto w-full md:mt-0'>
+							<h2 class='text-gray-900 text-lg font-medium title-font mb-10'>Login</h2>
+							<p class='text-gray-900 font-medium title-font mb-10'>You are currently logged out. Please login below.</p>
+
+							<label for='username' class='leading-7 text-sm text-gray-600'>
+								Username
+							</label>
+							<div class='relative mb-4'>
+								<input
+									type='text'
+									id='username'
+									name='username'
+									class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+								/>
+							</div>
+							<label for='password' class='leading-7 text-sm text-gray-600'>
+								Password
+							</label>
+							<div class='relative mb-4'>
+								<input
+									type='password'
+									id='password'
+									name='password'
+									class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+								/>
+							</div>
+							<div class='relative mb-4'>
+								<button class='text-white bg-blue-500 py-1 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg' onClick={checkLogin}>
+									🔐 Login
+								</button>
+							</div>
+
+							{loginError && <p>Login failed. Please check your credentials and try again.</p>}
+						</div>
+					</div>
+				</section>
 			)}
-		</section>
+		</>
 	);
 }

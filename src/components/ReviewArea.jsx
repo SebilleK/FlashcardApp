@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleNotification } from '../features/study/studySlice';
 import StudyingReviewPanel from '../features/study/StudyingReviewPanel';
 import FinishedStudyingNotif from '../features/study/FinishedStudyingNotif';
+
 export default function ReviewArea() {
 	const dispatch = useDispatch();
 	const activeDeckId = useSelector(state => state.study.activeDeck);
@@ -40,6 +41,7 @@ export default function ReviewArea() {
 			<article className='review-area'>
 				{' '}
 				<p>Please select a deck to study 👉</p>
+				
 			</article>
 		);
 	}

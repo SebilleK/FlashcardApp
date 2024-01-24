@@ -1,4 +1,5 @@
 # [in development]
+
 # FlashcardApp
 
 FlashcardApp is a web application designed for reviewing question-answer flashcards based on Spaced Repetition Systems (SRS). Users can create and organize their flashcards into decks and study them, facilitating the learning and retention of diverse information. The application operates in a manner similar to a simplified version of popular tools like Anki ([AnkiWeb](https://apps.ankiweb.net/)) or Brainscape ([Brainscape](https://www.brainscape.com/)), for smaller sets of information.
@@ -13,3 +14,10 @@ This application is being developed as a final project for a frontend course.
 ## Functionalities
 
 [TBA]
+
+## Libraries Used
+
+- https://tailblocks.cc/
+- https://www.tailwind-kit.com/
+- https://daisyui.com/
+- https://layoutsfortailwind.lalokalabs.dev/

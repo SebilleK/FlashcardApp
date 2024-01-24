@@ -1,0 +1,1 @@
+These are personalized styles for the study page and general animations.

@@ -7,7 +7,6 @@ const initialState = {
 	showAnswer: false, // answer is shown or not
 	showNotification: false, // notification on deck completion
 	wrongCards: [], // wrong cards for review
-	rightCards: [], // right cards for review deck removal
 };
 
 const studySlice = createSlice({
@@ -20,7 +19,6 @@ const studySlice = createSlice({
 		startStudying: (state, action) => {
 			state.currentCardIndex = 0;
 			state.isStudying = true;
-			state.showAnswer = false;
 		},
 		nextCard: state => {
 			state.currentCardIndex += 1;
@@ -48,15 +46,9 @@ const studySlice = createSlice({
 		resetWrongCards: state => {
 			state.wrongCards = [];
 		},
-		addToRightCards: (state, action) => {
-			state.rightCards.push(action.payload);
-		},
-		resetRightCards: state => {
-			state.rightCards = [];
-		},
 	},
 });
 
-export const { deckSelect, startStudying, nextCard, showAnswer, endStudying, toggleNotification, setCurrentCardIndex, addToWrongCards, resetWrongCards, addToRightCards, resetRightCards } = studySlice.actions;
+export const { deckSelect, startStudying, nextCard, showAnswer, endStudying, toggleNotification, setCurrentCardIndex, addToWrongCards, resetWrongCards } = studySlice.actions;
 
 export default studySlice.reducer;

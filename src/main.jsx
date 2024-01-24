@@ -13,7 +13,9 @@ import { Provider } from 'react-redux';
 import store from './app/store.js';
 
 /* Styling */
-import './style/main.css';
+/* import './main.css';
+import './output.css'; */
+import './css/study.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>

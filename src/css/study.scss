@@ -1,0 +1,157 @@
+body {
+	overflow: hidden; /* Hide scrollbars */
+}
+
+.studypage {
+	background: #f3f4f6;
+	padding-top: 3rem;
+	padding-bottom: 7rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	h1 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: 1rem;
+	}
+
+	.control-btns {
+		display: flex;
+		gap: 1rem;
+		font-size: 1.2rem;
+		button {
+			background: #3b82f6;
+			color: white;
+			border-radius: 5px;
+			padding: 0.3rem 1rem;
+
+			&:hover {
+				background: #2563eb;
+			}
+		}
+	}
+
+	.study-container {
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin: 2rem 0;
+		height: 100%;
+		width: 100%;
+
+		h2 {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+
+		.study-review {
+			width: 80%;
+			border-radius: 5px;
+			padding: 1rem;
+		}
+
+		.study-decks {
+			width: 20%;
+			border-radius: 5px;
+			padding: 1rem;
+
+			p {
+				margin: 0.5rem;
+				font-size: 1.2rem;
+				font-weight: bold;
+			}
+		}
+
+		.review-area {
+			padding: 5rem;
+			padding-top: +2rem;
+
+			p {
+				font-size: 1.4rem;
+				font-weight: bold;
+				margin: 0.5rem;
+			}
+
+			ul {
+				padding: 0.5rem;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1rem;
+				margin: 0 auto;
+				width: 100%;
+				height: 100%;
+
+				li {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 1.2rem;
+					background-color: white;
+					color: black;
+					border-radius: 10px;
+					border: 1px solid #3b82f6;
+					padding: 1rem 2rem;
+				}
+			}
+		}
+
+		.decks-list {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+
+			ul {
+				display: flex;
+				flex-direction: column;
+				gap: 0.2rem;
+				padding: 0.5rem;
+			}
+
+			li {
+				background-color: #3b82f6;
+				color: white;
+				border-radius: 5px;
+				padding: 1rem;
+				font-weight: bold;
+
+				&:hover {
+					cursor: pointer;
+					background-color: #2563eb;
+					scale: 1.009;
+					transition: 0.1s all ease-in-out;
+				}
+			}
+		}
+
+		.studying-review-panel {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+
+			p {
+				font-size: 1.4rem;
+			}
+
+			button {
+				background: #3b82f6;
+				margin: 2rem;
+				color: white;
+				border-radius: 5px;
+				padding: 0.3rem 1rem;
+
+				&:hover {
+					background: #2563eb;
+				}
+			}
+		}
+
+		.finished-studying-notif {
+			font-size: 1.4rem;
+			font-weight: bold;
+			margin: 0.5rem;
+		}
+	}
+}

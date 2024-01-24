@@ -3,18 +3,26 @@ import { Link } from 'react-router-dom';
 
 export default function Homepage() {
 	return (
-		<section className='homepage'>
-			<h1>Homepage</h1>
-			<div className='intro'>
-				<img src={IntroPic} alt='' />
-				<div className='intro-info'>
-					<p>Hello and welcome to FlashcardApp. Here you can study your own short flashcard decks to easily remember new information, be it vocabulary, math formulas, trivia, etc. 📚</p>
-					<p>
-						<Link to='/login'>
-							<a href=''>Login</a>
-						</Link>{' '}
-						and start learning!📖
+		<section className='text-gray-600 bg-gray-100 body-font'>
+			<div className='container mx-auto flex px-5 py-24 md:flex-row flex-col items-center'>
+				<div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0'>
+					<img className='object-cover object-center rounded' alt='hero' src={IntroPic} />
+				</div>
+				<div className='lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center'>
+					<h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
+						Flashcard App
+						<br class='hidden lg:inline-block' />
+					</h1>
+					<p className='mb-4 leading-relaxed'>
+						Hello and welcome to FlashcardApp. Here you can study your own short flashcard decks to easily remember new information, be it vocabulary, math formulas, trivia, etc. 📚
+						<br className='hidden lg:inline-block' />
+						Login below and start learning! 📖
 					</p>
+					<div className='flex justify-center'>
+						<button className='inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg'>
+							<Link to='/login'>Login </Link>
+						</button>
+					</div>
 				</div>
 			</div>
 		</section>
