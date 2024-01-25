@@ -19,7 +19,10 @@ export default function Navbar({ auth }) {
 								<Link to='/study'>Study</Link>
 							</a>
 							<a className='mr-5 hover:text-gray-900'>
-								<Link to='/perfil'>Perfil</Link>
+								<Link to='/inventory'>Inventory</Link>
+							</a>
+							<a className='mr-5 hover:text-gray-900'>
+								<Link to='/perfil'>Profile</Link>
 							</a>
 						</>
 					) : null}

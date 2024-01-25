@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { nextCard, showAnswer, endStudying, addToWrongCards, resetWrongCards } from './studySlice';
+import { nextCard, showAnswer, endStudying, addToWrongCards, resetWrongCards, addToRightCards, resetRightCards } from './studySlice';
 import { updateDecks } from '../../authentication/authSlice';
 import { useEffect } from 'react';
 
@@ -25,6 +25,9 @@ export default function StudyingReviewPanel() {
 	//! wrong cards for review
 	const wrongCards = useSelector(state => state.study.wrongCards);
 
+	//! right cards for deck removal
+	const rightCards = useSelector(state => state.study.rightCards);
+
 	// review deck (found by name)
 	/* 	const reviewDeck = userDecks.find(deck => deck.name === 'Review Flashcards'); */
 
@@ -35,21 +38,21 @@ export default function StudyingReviewPanel() {
 	// !? condição do if? console logs para tentar determinar o problema.
 	//! FIXED. SEE USEEFFECT BELOW.
 
+	//! next card handler for all decks
 	const handleNextCard = () => {
-/* 		console.log('currentCardIndex:', currentCardIndex);
-		console.log('activeDeck.flashcards.length:', activeDeck.flashcards.length);
-		console.log('wrongCards:', wrongCards); */
-
+		// if last card
 		if (currentCardIndex == activeDeck.flashcards.length - 1) {
-			console.log(wrongCards);
+			console.log(rightCards);
 			const updatedUserDecks = userDecks.map(deck => {
 				// if the deck is the review deck, remove the duplicate wrong cards if any
+				// additionally, remove all cards marked as right!!
 				if (deck.name === 'Review Flashcards') {
 					const uniqueWrongCards = wrongCards.filter(wrongCard => !deck.flashcards.some(card => card.id === wrongCard.id));
+					const removeRightCards = deck.flashcards.filter(card => !rightCards.some(rightCard => card.id === rightCard.id));
 
 					return {
 						...deck,
-						flashcards: [...deck.flashcards, ...uniqueWrongCards],
+						flashcards: [...removeRightCards, ...uniqueWrongCards],
 					};
 				} else {
 					return deck;
@@ -58,6 +61,7 @@ export default function StudyingReviewPanel() {
 
 			dispatch(updateDecks(updatedUserDecks));
 			dispatch(resetWrongCards());
+			dispatch(resetRightCards());
 			dispatch(endStudying());
 		} else {
 			dispatch(nextCard());
@@ -65,7 +69,9 @@ export default function StudyingReviewPanel() {
 	};
 
 	// !! if deck is review deck (card removal)
-	/* To do */
+	const handleDeckRemoval = () => {
+		dispatch(addToRightCards(activeDeck.flashcards[currentCardIndex]));
+	};
 
 	// !! if answer is incorrect (*rever novamente*)
 	const handleMistake = () => {
@@ -76,13 +82,15 @@ export default function StudyingReviewPanel() {
 	};
 
 	// ! UseEffect hook = FIX FOR PROBLEM 1*
+	//? this is needed so that the wrongCards state is updated before the nextCard function is called, it's an asyncronism problem. additionally, it prevents wrong indexing on the nextCard function for the review deck (soo the
+	//? right cards array also works for card removal after)
 	useEffect(() => {
 		// Check if the wrongCards state is not empty!!
-		if (wrongCards.length > 0) {
+		if (wrongCards.length > 0 || rightCards.length > 0) {
 			// Wait for the state to update!!
 			handleNextCard();
 		}
-	}, [wrongCards]);
+	}, [wrongCards, rightCards]);
 
 	// SHOW ANSWER
 	const handleShowAnswer = () => {
@@ -101,7 +109,7 @@ export default function StudyingReviewPanel() {
 					<>
 						<button onClick={handleMistake}>Rever Novamente 🔁</button>
 
-						<button onClick={handleNextCard}>Certo ✅</button>
+						{activeDeck.name === 'Review Flashcards' ? <button onClick={handleDeckRemoval}>Remover Flashcard ✅</button> : <button onClick={handleNextCard}>Certo ✅</button>}
 					</>
 				)}
 

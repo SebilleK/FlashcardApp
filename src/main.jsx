@@ -5,6 +5,7 @@ import Home from './components/Homepage.jsx';
 import Study from './components/Studypage.jsx';
 import LoginLogoutpage from './components/LoginLogoutpage.jsx';
 import Perfil from './components/Perfilpage.jsx';
+import InventoryPage from './components/InventoryPage.jsx';
 
 /* Routing */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 						<Route path='study' element={<Study />} />
 						<Route path='login' element={<LoginLogoutpage />} />
 						<Route path='perfil' element={<Perfil />} />
+						<Route path='inventory' element={<InventoryPage />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

@@ -1,5 +1,9 @@
 body {
-	overflow: hidden; /* Hide scrollbars */
+	/* hide scrollbar on most browsers when not needed */
+	::-webkit-scrollbar {
+		display: none;
+	}
+
 }
 
 .studypage {
