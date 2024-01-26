@@ -39,7 +39,7 @@ const authSlice = createSlice({
 			localStorage.removeItem('user');
 		},
 		setUserData: (state, action) => {
-			state.userData = action.payload;
+			state.user = action.payload;
 		},
 		updateDecks: (state, action) => {
 			state.user.decks = action.payload;

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, loginFailed, setUserData } from '../authentication/authSlice';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginLogoutpage() {
 	const dispatch = useDispatch();
+	// for after login redirect
+	const navigate = useNavigate();
 	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-	const userData = useSelector(state => state.auth.userData);
+	const userData = useSelector(state => state.auth.user);
 	const loginError = useSelector(state => state.auth.loginError);
 
 	useEffect(() => {
@@ -28,10 +30,12 @@ export default function LoginLogoutpage() {
 		let passwordInput = document.getElementById('password').value;
 
 		/* Find the user w/ correct credentials, if any */
-		const user = userData.find(u => u.username === usernameInput && u.password === passwordInput);
+		const user = userData.find(user => user.username === usernameInput && user.password === passwordInput);
 
 		if (user) {
 			dispatch(login(user));
+			// redirect
+			navigate('/perfil');
 			console.log('Login successful');
 		} else {
 			dispatch(loginFailed());
@@ -68,63 +72,44 @@ export default function LoginLogoutpage() {
 	return (
 		<>
 			{isAuthenticated ? (
-				<>
-					<section class='text-gray-600 body-font bg-gray-100 min-h-screen flex items-center justify-center'>
-						<div class='container mx-auto flex px-5 py-24'>
-							<div class='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mx-auto w-full md:mt-0'>
-								<h2 class='text-gray-900 text-lg font-medium title-font mb-10'>Logout</h2>
-								<p class='text-gray-900 font-medium title-font mb-10'>You are currently logged in.</p>
-								<p class='text-gray-900 font-medium title-font mb-10'>
-									Check out your <Link to='/perfil'>profile</Link>, <Link to='/study'>study</Link> or log out below.
-								</p>
-
-								<div class='relative mb-4'>
-									<button class='text-white bg-blue-500 py-1 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg' onClick={() => dispatch(logout())}>
-										↩️ Logout
-									</button>
-								</div>
-
-								{loginError && <p class='text-red-500'>Login failed. Please check your credentials and try again.</p>}
-							</div>
-						</div>
-					</section>
-				</>
+				<>{/* redirecting to perfil page */}</>
 			) : (
-				<section class='text-gray-600 body-font bg-gray-100 min-h-screen flex items-center justify-center'>
-					<div class='container mx-auto flex px-5 py-24'>
-						<div class='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mx-auto w-full md:mt-0'>
-							<h2 class='text-gray-900 text-lg font-medium title-font mb-10'>Login</h2>
-							<p class='text-gray-900 font-medium title-font mb-10'>You are currently logged out. Please login below.</p>
+				<section className='text-gray-600 body-font bg-gray-100 flex items-center justify-center fadeIn'>
+					<div className='container mx-4 flex px-5 py-24'>
+						<div className='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-4 flex flex-col mx-auto w-full md:mt-0'>
+							<h2 className='text-gray-900 text-lg font-medium title-font mb-10'>Login</h2>
 
-							<label for='username' class='leading-7 text-sm text-gray-600'>
+							<p className='text-gray-900 font-medium title-font mb-10'>You are currently logged out. Please login below.</p>
+
+							<label htmlFor='username' className='leading-7 text-sm text-gray-600'>
 								Username
 							</label>
-							<div class='relative mb-4'>
+							<div className='relative mb-4'>
 								<input
 									type='text'
 									id='username'
 									name='username'
-									class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+									className='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
 								/>
 							</div>
-							<label for='password' class='leading-7 text-sm text-gray-600'>
+							<label htmlFor='password' className='leading-7 text-sm text-gray-600'>
 								Password
 							</label>
-							<div class='relative mb-4'>
+							<div className='relative mb-4'>
 								<input
 									type='password'
 									id='password'
 									name='password'
-									class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+									className='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
 								/>
 							</div>
-							<div class='relative mb-4'>
-								<button class='text-white bg-blue-500 py-1 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg' onClick={checkLogin}>
+							<div className='relative'>
+								<button className='text-white bg-blue-500 py-1 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg' onClick={checkLogin}>
 									🔐 Login
 								</button>
 							</div>
 
-							{loginError && <p>Login failed. Please check your credentials and try again.</p>}
+							{loginError && <p className='text-red-500 font-medium title-font mt-10'>Login failed. Please check your credentials and try again.</p>}
 						</div>
 					</div>
 				</section>

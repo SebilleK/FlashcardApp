@@ -15,9 +15,16 @@ This application is being developed as a final project for a frontend course.
 
 [TBA]
 
-## Libraries Used
+## Resources Used
 
-- https://tailblocks.cc/
-- https://www.tailwind-kit.com/
-- https://daisyui.com/
+Component Styling and Layout:
+
 - https://layoutsfortailwind.lalokalabs.dev/
+- https://tailblocks.cc/
+- https://daisyui.com/
+
+Other Resources:
+
+- https://www.svgrepo.com/ (Logo SVG)
+- https://unsplash.com/ (Homepage Intro Image)
+- https://www.theappguruz.com/tag-tools/web/CSSAnimations/ (Fade-In Animation)

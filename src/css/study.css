@@ -5,6 +5,7 @@ body ::-webkit-scrollbar {
   display: none;
 }
 
+/* Study Page */
 .studypage {
   background: #f3f4f6;
   padding-top: 3rem;
@@ -136,4 +137,53 @@ body ::-webkit-scrollbar {
   font-size: 1.4rem;
   font-weight: bold;
   margin: 0.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .study-container {
+    flex-direction: column;
+  }
+  .study-review {
+    border: 1px solid #3b82f6;
+  }
+  .study-decks ul {
+    align-items: center;
+  }
+  .study-decks h2 {
+    display: none;
+  }
+  .decks-list {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .decks-list li {
+    width: fit-content;
+  }
+}
+/* Animations */
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

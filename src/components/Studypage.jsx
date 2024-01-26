@@ -8,7 +8,7 @@ export default function Studypage() {
 
 
 	return (
-		<section className='studypage'>
+		<section className='studypage fadeIn'>
 			<h1>Study</h1>
 			<div className='control-btns'>
 				<button onClick={() => dispatch(startStudying())} className='start-btn'>

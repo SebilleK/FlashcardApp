@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "npm-run-all -p start:vite start:json-server",
+		"build:css": "tailwindcss build src/main.css -o src/output.css",
 		"start:vite": "vite",
 		"start:json-server": "json-server --watch src/data.json --port 3001",
 		"build": "vite build",
