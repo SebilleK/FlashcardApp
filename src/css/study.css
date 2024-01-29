@@ -161,6 +161,72 @@ body ::-webkit-scrollbar {
     width: fit-content;
   }
 }
+/* Inventory Page */
+.inventorypage .table-inventory {
+  border: 1px solid #3b82f6;
+}
+.inventorypage .table-inventory tr {
+  border: 1px solid #3b82f6;
+}
+.inventorypage .table-inventory th,
+.inventorypage .table-inventory td {
+  padding: 0.5rem;
+}
+.inventorypage .deck-control-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.inventorypage .deck-control-btns button {
+  color: white;
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
+}
+.inventorypage .deck-control-btns .create-deck-btn {
+  background: #22c55e;
+}
+.inventorypage .deck-control-btns .create-deck-btn:hover {
+  background: #16a34a;
+}
+.inventorypage .deck-control-btns .delete-deck-btn {
+  background: #ef4444;
+}
+.inventorypage .deck-control-btns .delete-deck-btn:hover {
+  background: #dc2626;
+}
+.inventorypage .deck-control-btns .edit-deck-btn {
+  background: #f59e0b;
+}
+.inventorypage .deck-control-btns .edit-deck-btn:hover {
+  background: #d97706;
+}
+
+/* Deck List (for study and inventory)*/
+.decks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+}
+.decks-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem;
+}
+.decks-list li {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  font-weight: bold;
+}
+.decks-list li:hover {
+  cursor: pointer;
+  background-color: #2563eb;
+  scale: 1.009;
+  transition: 0.1s all ease-in-out;
+}
+
 /* Animations */
 .fadeIn {
   -webkit-animation-name: fadeIn;

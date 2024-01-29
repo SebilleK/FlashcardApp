@@ -1,4 +1,4 @@
 Some personalized styles for:
 
 > animations
-> all the study page
+> the study page and the inventory page

@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	isEditing: false,
 	alert: false,
+	isDeckEditing: false,
+	isFlashcardEditing: false,
 };
 
 const editSlice = createSlice({
@@ -15,12 +17,20 @@ const editSlice = createSlice({
 		stopEditing: state => {
 			state.isEditing = false;
 		},
-		setAlert : state => {
-			state.alert = !state.alert 
-		}
+		setAlert: state => {
+			state.alert = !state.alert;
+		},
+		setDeckEditing: state => {
+			state.isDeckEditing = !state.isDeckEditing;
+			console.log(state.isDeckEditing);
+		},
+		setFlashcardEditing: state => {
+			state.isFlashcardEditing = !state.isFlashcardEditing;
+			console.log(state.isFlashcardEditing);
+		},
 	},
 });
 
-export const { startEditing, stopEditing, setAlert } = editSlice.actions;
+export const { startEditing, stopEditing, setAlert, setDeckEditing, setFlashcardEditing } = editSlice.actions;
 
 export default editSlice.reducer;

@@ -190,8 +190,88 @@ body {
 	}
 }
 
-/* Animations */
+/* Inventory Page */
+.inventorypage {
+	.table-inventory {
+		border: 1px solid #3b82f6;
 
+		tr {
+			border: 1px solid #3b82f6;
+		}
+
+		th,
+		td {
+			padding: 0.5rem;
+		}
+	}
+
+	.deck-control-btns {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		padding: 1rem;
+
+		button {
+			color: white;
+			border-radius: 5px;
+			padding: 0.3rem 1rem;
+		}
+
+		.create-deck-btn {
+			background: #22c55e;
+
+			&:hover {
+				background: #16a34a;
+			}
+		}
+
+		.delete-deck-btn {
+			background: #ef4444;
+
+			&:hover {
+				background: #dc2626;
+			}
+		}
+
+		.edit-deck-btn {
+			background: #f59e0b;
+
+			&:hover {
+				background: #d97706;
+			}
+		}
+	}
+}
+
+/* Deck List (for study and inventory)*/
+.decks-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		padding: 0.5rem;
+	}
+
+	li {
+		background-color: #3b82f6;
+		color: white;
+		border-radius: 5px;
+		padding: 1rem;
+		font-weight: bold;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #2563eb;
+			scale: 1.009;
+			transition: 0.1s all ease-in-out;
+		}
+	}
+}
+
+/* Animations */
 .fadeIn {
 	-webkit-animation-name: fadeIn;
 	animation-name: fadeIn;
