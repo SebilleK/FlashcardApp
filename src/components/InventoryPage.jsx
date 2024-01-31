@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import DeckList from './DeckList';
 import { updateDecks } from '../authentication/authSlice';
-import { setDeckEditing } from '../features/edit/editSlice';
+import { setDeckEditing, setFlashcardEditing, setActiveFlashcard, setActiveDeck } from '../features/edit/editSlice';
+import FlashcardEdit from '../features/edit/FlashcardEdit';
+import DeckEdit from '../features/edit/DeckEdit';
 
 export default function InventoryPage() {
 	const dispatch = useDispatch();
@@ -10,11 +12,16 @@ export default function InventoryPage() {
 	const activeDeckId = useSelector(state => state.study.activeDeck);
 	// find active deck
 	const activeDeck = userDecks.find(deck => deck.id === activeDeckId);
+	// is editing flashcard or deck ?
+	const isFlashcardEditing = useSelector(state => state.edit.isFlashcardEditing);
+	const isDeckEditing = useSelector(state => state.edit.isDeckEditing);
 
 	//! edit and delete existing flashcards per deck
 	const handleEditFlashcard = flashcardId => {
 		console.log(flashcardId, 'edit');
-		//edit flashcard tba
+		//set the active flashcard and open the edit flashcard menu
+		dispatch(setActiveFlashcard(flashcardId));
+		dispatch(setFlashcardEditing());
 	};
 
 	const handleDeleteFlashcard = flashcardId => {
@@ -58,6 +65,7 @@ export default function InventoryPage() {
 
 	const handleEditDeck = deckId => {
 		console.log(deckId, 'edit');
+		dispatch(setActiveDeck(deckId));
 		dispatch(setDeckEditing());
 		// make an alternate form page where you can change de deck name and add flashcards, us isdeckediting true
 	};
@@ -71,68 +79,81 @@ export default function InventoryPage() {
 	return (
 		<>
 			<section className='inventorypage text-gray-600 bg-gray-100 body-font fadeIn'>
-				<h1 className='title-font sm:text-4xl text-3xl mb-1 py-8 font-medium text-gray-900 text-center'>Inventory </h1>
-				<h2 className='title-font sm:text-2xl text-1xl mb-4 font-medium text-gray-900 text-center '>Edit your decks and flashcards</h2>
-				<div className='deck-control-btns'>
-					<button onClick={handleCreateDeck} className='create-deck-btn'>
-						Create New Deck
-					</button>
-					<button onClick={handleEditDeck} className='edit-deck-btn'>
-						Edit Selected Deck
-					</button>
-					<button onClick={handleDeleteDeck} className='delete-deck-btn'>
-						Delete Selected Deck
-					</button>
-				</div>
-				<div className='flex items-center justify-center py-12'>
-					<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center decklist-inventory'>
-						<DeckList />
-					</div>
-					<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center p-4'>
+				{isDeckEditing ? (
+					// deck edit form page
+					<DeckEdit />
+				) : (
+					<>
+						<h1 className='title-font sm:text-4xl text-3xl mb-1 py-8 font-medium text-gray-900 text-center'>Inventory </h1>
+						<h2 className='title-font sm:text-2xl text-1xl mb-4 font-medium text-gray-900 text-center '>Edit your decks and flashcards</h2>
 						{activeDeck ? (
-							<table className='table table-xs w-full table-inventory'>
-								<thead>
-									<tr className=''>
-										<th className='py-2'>Flashcard Id</th>
-										<th className='py-2'>Question</th>
-										<th className='py-2'>Answer</th>
-										<th className='py-2'>Deck</th>
-										<th className='py-2'>Edit</th>
-										<th className='py-2'>Delete</th>
-									</tr>
-								</thead>
-								<tbody>
-									{activeDeck.flashcards.map(flashcard => (
-										<tr key={flashcard.id} className='border-t'>
-											<td className='py-2'>{flashcard.id}</td>
-											<td className='py-2'>{flashcard.question}</td>
-											<td className='py-2'>{flashcard.answer}</td>
-											<td className='py-2'>{activeDeck.name}</td>
-											<td className='py-2'>
-												<button
-													onClick={() => handleEditFlashcard(flashcard.id)}
-													className='inline-flex text-white bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-600 rounded text-lg'
-												>
-													Edit
-												</button>
-											</td>
-											<td>
-												<button
-													onClick={() => handleDeleteFlashcard(flashcard.id)}
-													className='inline-flex text-white bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-600 rounded text-lg'
-												>
-													Delete
-												</button>
-											</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
+							<div className='deck-control-btns'>
+								<button onClick={() => handleCreateDeck(activeDeckId)} className='create-deck-btn'>
+									Create New Deck
+								</button>
+								<button onClick={() => handleEditDeck(activeDeckId)} className='edit-deck-btn'>
+									Edit Selected Deck
+								</button>
+								<button onClick={handleDeleteDeck} className='delete-deck-btn'>
+									Delete Selected Deck
+								</button>
+							</div>
 						) : (
-							<p className='font-medium text-lg'>👈 Please select a deck to edit</p>
+							<h3 className='text-center'>No deck selected</h3>
 						)}
-					</div>
-				</div>
+						{/*! // popup flashcard edit */}
+						{isFlashcardEditing ? <FlashcardEdit /> : null}
+						<div className='flex items-center justify-center py-12'>
+							<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center decklist-inventory'>
+								<DeckList />
+							</div>
+							<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center p-4'>
+								{activeDeck ? (
+									<table className='table table-xs w-full table-inventory'>
+										<thead>
+											<tr className=''>
+												<th className='py-2'>Flashcard Id</th>
+												<th className='py-2'>Question</th>
+												<th className='py-2'>Answer</th>
+												<th className='py-2'>Deck</th>
+												<th className='py-2'>✎ Edit</th>
+												<th className='py-2'>🗑️ Delete</th>
+											</tr>
+										</thead>
+										<tbody>
+											{activeDeck.flashcards.map(flashcard => (
+												<tr key={flashcard.id} className='border-t'>
+													<td className='py-2'>{flashcard.id}</td>
+													<td className='py-2'>{flashcard.question}</td>
+													<td className='py-2'>{flashcard.answer}</td>
+													<td className='py-2'>{activeDeck.name}</td>
+													<td className='py-2'>
+														<button
+															onClick={() => handleEditFlashcard(flashcard.id)}
+															className='inline-flex text-white bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-600 rounded text-lg'
+														>
+															Edit
+														</button>
+													</td>
+													<td>
+														<button
+															onClick={() => handleDeleteFlashcard(flashcard.id)}
+															className='inline-flex text-white bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-600 rounded text-lg'
+														>
+															Delete
+														</button>
+													</td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								) : (
+									<p className='font-medium text-lg'>👈 Please select a deck to edit</p>
+								)}
+							</div>
+						</div>
+					</>
+				)}
 			</section>
 		</>
 	);

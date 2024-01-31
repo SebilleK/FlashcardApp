@@ -241,6 +241,43 @@ body {
 			}
 		}
 	}
+
+	.flashcard-edit-form {
+		border: 1px solid #3b82f6;
+		margin: 1rem auto;
+		width: 25rem;
+		height: 25rem;
+		padding: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.1rem;
+		font-weight: bold;
+
+		input {
+			width: 100%;
+		}
+
+		button {
+			margin-top: 1rem;
+			padding: 0.3rem 1rem;
+			border-radius: 5px;
+		}
+
+		.flashcard-edit-buttons {
+			gap: 1rem;
+		}
+	}
+}
+
+.deck-edit-page{
+	.save-deck-btns {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
 }
 
 /* Deck List (for study and inventory)*/

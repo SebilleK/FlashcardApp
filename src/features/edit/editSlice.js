@@ -5,6 +5,9 @@ const initialState = {
 	alert: false,
 	isDeckEditing: false,
 	isFlashcardEditing: false,
+	activeFlashcard: null, // stores flashcard id
+	activeDeck: null, // stores deck id
+	newFlashcardsToAdd: [], // stores flashcards to add to the deck
 };
 
 const editSlice = createSlice({
@@ -28,9 +31,22 @@ const editSlice = createSlice({
 			state.isFlashcardEditing = !state.isFlashcardEditing;
 			console.log(state.isFlashcardEditing);
 		},
+		setActiveFlashcard: (state, action) => {
+			state.activeFlashcard = action.payload;
+		},
+		setActiveDeck: (state, action) => {
+			state.activeDeck = action.payload;
+		},
+		setNewFlashcardToAdd: (state, action) => {
+			// Instead of using += to add a new flashcard, spread operator is better to properly update the state array
+			state.newFlashcardsToAdd = [...state.newFlashcardsToAdd, action.payload];
+		},
+		clearNewFlashcardsToAdd: state => {
+			state.newFlashcardsToAdd = [];
+		},
 	},
 });
 
-export const { startEditing, stopEditing, setAlert, setDeckEditing, setFlashcardEditing } = editSlice.actions;
+export const { startEditing, stopEditing, setAlert, setDeckEditing, setFlashcardEditing, setActiveFlashcard, setActiveDeck, setNewFlashcardToAdd, clearNewFlashcardsToAdd } = editSlice.actions;
 
 export default editSlice.reducer;
