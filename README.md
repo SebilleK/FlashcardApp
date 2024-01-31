@@ -21,8 +21,6 @@ Component Styling and Layout:
 
 - https://layoutsfortailwind.lalokalabs.dev/
 - https://tailblocks.cc/
-- https://daisyui.com/
-- https://formik.org/
 
 Other Resources:
 
