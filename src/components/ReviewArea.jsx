@@ -16,6 +16,9 @@ export default function ReviewArea() {
 	// notification on deck completion toggle
 	const showNotification = useSelector(state => state.study.showNotification);
 
+	// check window width to change emoji
+	const isSmallScreen = window.innerWidth < 1000;
+
 	if (activeDeck && isStudying) {
 		return <StudyingReviewPanel />;
 	} else if (activeDeck) {
@@ -40,8 +43,7 @@ export default function ReviewArea() {
 		return (
 			<article className='review-area'>
 				{' '}
-				<p>Please select a deck to study 👉</p>
-				
+				<p>Please select a deck to study {isSmallScreen ? '👇' : '👉'}</p>
 			</article>
 		);
 	}

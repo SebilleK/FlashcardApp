@@ -8,6 +8,7 @@ const initialState = {
 	activeFlashcard: null, // stores flashcard id
 	activeDeck: null, // stores deck id
 	newFlashcardsToAdd: [], // stores flashcards to add to the deck
+	isDeckCreating: false,
 };
 
 const editSlice = createSlice({
@@ -44,9 +45,12 @@ const editSlice = createSlice({
 		clearNewFlashcardsToAdd: state => {
 			state.newFlashcardsToAdd = [];
 		},
+		setDeckCreating: state => {
+			state.isDeckCreating = !state.isDeckCreating;
+		}
 	},
 });
 
-export const { startEditing, stopEditing, setAlert, setDeckEditing, setFlashcardEditing, setActiveFlashcard, setActiveDeck, setNewFlashcardToAdd, clearNewFlashcardsToAdd } = editSlice.actions;
+export const { startEditing, stopEditing, setAlert, setDeckEditing, setFlashcardEditing, setActiveFlashcard, setActiveDeck, setNewFlashcardToAdd, clearNewFlashcardsToAdd, setDeckCreating } = editSlice.actions;
 
 export default editSlice.reducer;

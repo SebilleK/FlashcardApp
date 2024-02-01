@@ -139,7 +139,9 @@ body ::-webkit-scrollbar {
   margin: 0.5rem;
 }
 
+/* ALL Media Queries */
 @media screen and (max-width: 1000px) {
+  /* Study Page */
   .study-container {
     flex-direction: column;
   }
@@ -159,6 +161,15 @@ body ::-webkit-scrollbar {
   }
   .decks-list li {
     width: fit-content;
+  }
+  /* Inventory Page */
+  .inventorypage .deck-fashcards-container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hide-in-small-screen {
+    display: none;
   }
 }
 /* Inventory Page */
