@@ -14,6 +14,8 @@ If you want to try it out for yourself you can follow these steps to run the pro
 git clone https://github.com/SebilleK/FlashcardApp
 ```
 
+(or download it directly)
+
 2. Navigate to the project directory and install dependencies
 
 ```bash
