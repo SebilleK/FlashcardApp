@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { stopEditing, setAlert } from '../edit/editSlice';
 import { setUserData } from '../../authentication/authSlice';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function ProfileEdit() {
 	const dispatch = useDispatch();
@@ -14,7 +15,6 @@ export default function ProfileEdit() {
 		// Check if inputs are valid
 		if (newUsername.length < 3) {
 			dispatch(setAlert());
-			alert('Username must be at least 3 characters long.');
 			return;
 		}
 
@@ -42,7 +42,7 @@ export default function ProfileEdit() {
 		if (alert) {
 			dispatch(setAlert());
 		}
-		
+
 		console.log('Back button clicked');
 	};
 
@@ -57,8 +57,9 @@ export default function ProfileEdit() {
 						<div className='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-4 flex flex-col mx-auto w-full md:mt-0'>
 							<h2 className='text-gray-900 text-lg font-medium title-font mb-10'>Edit Profile</h2>
 							<p className='text-gray-900 font-medium title-font mb-10'>Please input your new username and email.</p>
+							{alert && <ErrorMessage />}
 
-							<label for='username' className='leading-7 text-sm text-gray-600'>
+							<label htmlFor='username' className='leading-7 text-sm text-gray-600'>
 								Username
 							</label>
 							<div className='relative mb-4'>
@@ -66,10 +67,11 @@ export default function ProfileEdit() {
 									type='text'
 									id='username'
 									name='username'
+									autoFocus
 									className='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
 								/>
 							</div>
-							<label for='email' className='leading-7 text-sm text-gray-600'>
+							<label htmlFor='email' className='leading-7 text-sm text-gray-600'>
 								Email
 							</label>
 							<div className='relative mb-4'>
@@ -85,8 +87,6 @@ export default function ProfileEdit() {
 									Save ✏
 								</button>
 							</div>
-
-							{alert ? <p className='text-red-500 font-medium title-font'>Please input a username with at least 3 characters and a valid email address.</p> : null}
 						</div>
 					</div>
 				</div>

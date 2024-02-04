@@ -93,22 +93,24 @@ export default function InventoryPage() {
 						<h1 className='title-font sm:text-4xl text-3xl mb-1 py-8 font-medium text-gray-900 text-center'>Inventory </h1>
 						<h2 className='title-font sm:text-2xl text-1xl mb-4 font-medium text-gray-900 text-center '>Edit your decks and flashcards</h2>
 
-						{activeDeck ? (
-							<div className='deck-control-btns'>
-								<button onClick={handleCreateDeck} className='create-deck-btn'>
-									Create New Deck
-								</button>
-								<button onClick={() => handleEditDeck(activeDeckId)} className='edit-deck-btn'>
-									Edit Selected Deck
-								</button>
-								<button onClick={handleDeleteDeck} className='delete-deck-btn'>
-									Delete Selected Deck
-								</button>
-							</div>
-						) : (
-							<h3 className='text-center'>No deck selected</h3>
-						)}
-						{isSmallScreen ? <p className='text-center text-red-500 mt-4 font-medium'>To browse, edit and/or delete existing flashcards please use another device with larger screen width.</p> : null}
+						<div className='deck-control-btns'>
+							<button onClick={handleCreateDeck} className='create-deck-btn'>
+								Create New Deck
+							</button>
+							{activeDeck ? (
+								<>
+									<button onClick={() => handleEditDeck(activeDeckId)} className='edit-deck-btn'>
+										Edit Selected Deck
+									</button>
+									<button onClick={handleDeleteDeck} className='delete-deck-btn'>
+										Delete Selected Deck
+									</button>
+								</>
+							) : (
+								<h3 className='text-center'>No deck selected</h3>
+							)}
+						</div>
+						{isSmallScreen ? <p className='text-center text-red-500 mt-4 font-medium'>To browse, edit and/or delete existing decks/flashcards please use a larger device.</p> : null}
 						<div className='hide-in-small-screen'>
 							{/*! // popup flashcard edit */}
 							{isFlashcardEditing ? <FlashcardEdit /> : null}

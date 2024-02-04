@@ -16,7 +16,7 @@ const authSlice = createSlice({
 		login: (state, action) => {
 			state.isAuthenticated = true;
 			state.user = action.payload;
-			state.loginError = false;
+			/* state.loginError = false; */
 			/* state.userDecks = storedUser.decks || null; */
 
 			// save user info in local storage (refresh =/= logout)
@@ -26,15 +26,15 @@ const authSlice = createSlice({
 		logout: state => {
 			state.isAuthenticated = false;
 			state.user = null;
-			state.loginError = false;
+			/* state.loginError = false; */
 
 			// remove user info from local storage
 			localStorage.removeItem('user');
 		},
 		loginFailed: state => {
 			state.isAuthenticated = false;
-			state.user = null;
-			state.loginError = true;
+/* 			state.user = null; */
+			/* state.loginError = true; */
 			// remove user info from local storage
 			localStorage.removeItem('user');
 		},
@@ -44,9 +44,12 @@ const authSlice = createSlice({
 		updateDecks: (state, action) => {
 			state.user.decks = action.payload;
 		},
+		setLoginError: (state, action) => {
+			state.loginError = action.payload;
+		},
 	},
 });
 
-export const { login, logout, loginFailed, setUserData, updateDecks } = authSlice.actions;
+export const { login, logout, loginFailed, setUserData, updateDecks, setLoginError } = authSlice.actions;
 
 export default authSlice.reducer;

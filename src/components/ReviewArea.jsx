@@ -25,15 +25,21 @@ export default function ReviewArea() {
 		return (
 			<>
 				<article className='review-area'>
-					<p>{activeDeck.name}</p>
-					<p>Flashcards: {activeDeck.flashcards.length} </p>
-					<ul>
-						{activeDeck.flashcards.map(flashcard => (
-							<li key={flashcard.id}>
-								{flashcard.question}: {flashcard.answer}
-							</li>
-						))}
-					</ul>
+					{isSmallScreen ? (
+						<p>Start studying above!</p>
+					) : (
+						<>
+							<p>{activeDeck.name}</p>
+							<p>Flashcards: {activeDeck.flashcards.length} </p>
+							<ul>
+								{activeDeck.flashcards.map(flashcard => (
+									<li key={flashcard.id}>
+										{flashcard.question}: {flashcard.answer}
+									</li>
+								))}
+							</ul>
+						</>
+					)}
 				</article>
 			</>
 		);

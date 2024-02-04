@@ -78,7 +78,15 @@ export default function FlashcardEdit() {
 					<label htmlFor='question' className='block text-gray-700 font-semibold mb-2'>
 						Question:
 					</label>
-					<input type='text' id='question' name='question' className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500' placeholder={flashcardToEdit.question} required />
+					<input
+						autoFocus
+						type='text'
+						id='question'
+						name='question'
+						className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
+						placeholder={flashcardToEdit.question}
+						required
+					/>
 				</div>
 
 				<div class='mb-6'>

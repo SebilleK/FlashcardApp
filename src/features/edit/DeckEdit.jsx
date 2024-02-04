@@ -7,29 +7,33 @@ export default function DeckEdit() {
 	const activeDeckId = useSelector(state => state.edit.activeDeck);
 	const userDecks = useSelector(state => state.auth.user.decks);
 	const newFlashcards = useSelector(state => state.edit.newFlashcardsToAdd);
-
+	
 	// find active deck
 	const activeDeck = userDecks.find(deck => deck.id === activeDeckId);
 
 	// save the new deck name
 	const saveDeckInfo = () => {
 		const newName = document.getElementById('deckname').value;
-		if (newName === '') {
-			// Exit deck editing mode if the deck name is empty
+		console.log('newFlashcards:', newFlashcards);
+		if (newName === '' && newFlashcards.length === 0) {
+			// Exit deck editing mode if the deck name and new flashcards are empty
 			dispatch(setDeckEditing());
 			return;
 		}
 
 		// update the deck info and add all the flashcards to it
 		const updatedDecks = userDecks.map(deck => {
-			if (deck.id === activeDeckId) {
+			if (deck.id === activeDeckId && newName !== '') {
 				return {
 					...deck,
 					name: newName,
-					flashcards: [...deck.flashcards, ...newFlashcards], // Add new flashcards to the deck
+					flashcards: [...newFlashcards, ...deck.flashcards], // Add new flashcards to the deck
 				};
 			} else {
-				return deck;
+				return {
+					...deck,
+					flashcards: [...newFlashcards, ...deck.flashcards],
+				};
 			}
 		});
 
@@ -76,6 +80,7 @@ export default function DeckEdit() {
 								type='text'
 								id='deckname'
 								name='deckname'
+								autoFocus
 								placeholder={activeDeck.name}
 								className='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
 							/>
