@@ -28,6 +28,11 @@ npm run dev
 ```
 
 and finally, open http://localhost:5173/ on your browser. Make sure you're opening the correct port, change it if need be.
+You can login with the following credentials to test the app:
+
+username: random-guy
+password: random-password
+(see all the example users on the data.json file)
 
 ## Tech Stack
 
