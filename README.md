@@ -19,7 +19,7 @@ git clone https://github.com/SebilleK/FlashcardApp
 2. Navigate to the project directory and install dependencies
 
 ```bash
-cd FlashcardApp
+cd FlashcardApp-master
 npm install
 ```
 
