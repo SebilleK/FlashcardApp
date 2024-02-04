@@ -26,10 +26,10 @@ npm install
 3. Start development server and the JSON-Server API
 
 ```bash
-npm run all
+npm run dev
 ```
 
-and finally, open http://localhost:3000 on your browser. Make sure you're opening the correct port.
+and finally, open http://localhost:5173/ on your browser. Make sure you're opening the correct port, change it if need be.
 
 ## Tech Stack
 
