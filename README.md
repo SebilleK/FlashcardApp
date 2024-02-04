@@ -31,7 +31,9 @@ and finally, open http://localhost:5173/ on your browser. Make sure you're openi
 You can login with the following credentials to test the app:
 
 username: random-guy
+
 password: random-password
+
 (see all the example users on the data.json file)
 
 ## Tech Stack
