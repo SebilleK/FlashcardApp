@@ -1,7 +1,5 @@
-body {
-  /* hide scrollbar on most browsers when not needed */
-}
-body ::-webkit-scrollbar {
+/* hide scrollbar on most browsers */
+::-webkit-scrollbar {
   display: none;
 }
 
@@ -9,7 +7,7 @@ body ::-webkit-scrollbar {
 .studypage {
   background: #f3f4f6;
   padding-top: 3rem;
-  padding-bottom: 7rem;
+  padding-bottom: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,7 +119,17 @@ body ::-webkit-scrollbar {
   gap: 2rem;
 }
 .studypage .study-container .studying-review-panel p {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+  margin: 0.5rem;
+}
+.studypage .study-container .studying-review-panel .current-flashcard {
+  background-color: white;
+  border: 1px solid #3b82f6;
+  color: black;
+  border-radius: 5px;
+  padding: 3rem;
+  width: fit-content;
+  margin: 0 auto;
 }
 .studypage .study-container .studying-review-panel button {
   background: #3b82f6;
@@ -139,41 +147,12 @@ body ::-webkit-scrollbar {
   margin: 0.5rem;
 }
 
-/* ALL Media Queries */
-@media screen and (max-width: 1000px) {
-  /* Study Page */
-  .study-container {
-    flex-direction: column;
-  }
-  .study-review {
-    border: 1px solid #3b82f6;
-  }
-  .study-decks ul {
-    align-items: center;
-  }
-  .study-decks h2 {
-    display: none;
-  }
-  .decks-list {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .decks-list li {
-    width: fit-content;
-  }
-  /* Inventory Page */
-  .inventorypage .deck-fashcards-container {
-    flex-direction: column;
-  }
-}
-@media screen and (max-width: 600px) {
-  .hide-in-small-screen {
-    display: none;
-  }
-}
 /* Inventory Page */
+.inventorypage {
+  margin-bottom: 5rem;
+}
 .inventorypage .table-inventory {
+  flex: 6;
   border: 1px solid #3b82f6;
 }
 .inventorypage .table-inventory tr {
@@ -238,13 +217,40 @@ body ::-webkit-scrollbar {
   gap: 1rem;
 }
 
-.deck-edit-page .save-deck-btns {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+/* ALL Media Queries */
+@media screen and (max-width: 1000px) {
+  /* Study Page */
+  .study-container {
+    flex-direction: column;
+  }
+  .study-review {
+    border: 1px solid #3b82f6;
+  }
+  .study-decks ul {
+    align-items: center;
+  }
+  .study-decks h2 {
+    display: none;
+  }
+  .decks-list {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .decks-list li {
+    width: fit-content;
+  }
+  /* Inventory Page */
+  .inventorypage .deck-fashcards-container {
+    flex-direction: column;
+  }
 }
-
-/* Deck List (for study and inventory)*/
+@media screen and (max-width: 600px) {
+  .hide-in-small-screen {
+    display: none;
+  }
+}
+/* Deck List (study)*/
 .decks-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
@@ -267,6 +273,47 @@ body ::-webkit-scrollbar {
   background-color: #2563eb;
   scale: 1.009;
   transition: 0.1s all ease-in-out;
+}
+
+/* Deck List (inventory) */
+.decks-list-inventory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+}
+.decks-list-inventory .active-deck {
+  background-color: #f59e0b;
+}
+.decks-list-inventory ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem;
+}
+.decks-list-inventory li {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  font-weight: bold;
+}
+.decks-list-inventory li:hover {
+  cursor: pointer;
+  background-color: #d97706;
+  scale: 1.009;
+  transition: 0.1s all ease-in-out;
+}
+
+/* Editing Deck page (inventory)*/
+.deck-edit-page .save-deck-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* UI/UX centric fixes */
+/* make the pages a bit bigger when need be */
+.page-extend {
+  padding: 4rem 0rem 3rem 0rem;
 }
 
 /* Animations */

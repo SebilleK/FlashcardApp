@@ -86,7 +86,7 @@ export default function LoginLogoutpage() {
 			{isAuthenticated ? (
 				<>{/* redirecting to profile page above */}</>
 			) : (
-				<section className='text-gray-600 body-font bg-gray-100 flex items-center justify-center fadeIn'>
+				<section className='page-extend text-gray-600 body-font bg-gray-100 flex items-center justify-center fadeIn'>
 					<div className='container mx-4 flex px-5 py-24'>
 						<div className='lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-4 flex flex-col mx-auto w-full md:mt-0'>
 							<h2 className='text-gray-900 text-lg font-medium title-font mb-10'>Login</h2>

@@ -1,11 +1,44 @@
 import DeckList from './DeckList';
 import ReviewArea from './ReviewArea';
-import { startStudying, endStudying } from '../features/study/studySlice';
+import { startStudying, endStudying, resetWrongCards, resetRightCards } from '../features/study/studySlice';
+import { updateDecks } from '../authentication/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Studypage() {
 	const dispatch = useDispatch();
+	//! user decks
+	const userDecks = useSelector(state => state.auth.user.decks);
+	//! wrong cards for review
+	const wrongCards = useSelector(state => state.study.wrongCards);
+	//! right cards for deck removal
+	const rightCards = useSelector(state => state.study.rightCards);
+	//! is studying
+	const isStudying = useSelector(state => state.study.isStudying);
 
+	// handle end studying separately to still add wrong cards if it is ended early.
+	const handleStudyEnd = () => {
+		const updatedUserDecks = userDecks.map(deck => {
+			// if the deck is the review deck, remove the duplicate wrong cards if any
+			// additionally, remove all cards marked as right!!
+			//! this logic is copied from the StudyingReviewPanel
+			if (deck.name === 'Review Flashcards') {
+				const uniqueWrongCards = wrongCards.filter(wrongCard => !deck.flashcards.some(card => card.id === wrongCard.id));
+				const removeRightCards = deck.flashcards.filter(card => !rightCards.some(rightCard => card.id === rightCard.id));
+
+				return {
+					...deck,
+					flashcards: [...removeRightCards, ...uniqueWrongCards],
+				};
+			} else {
+				return deck;
+			}
+		});
+
+		dispatch(updateDecks(updatedUserDecks));
+		dispatch(resetWrongCards());
+		dispatch(resetRightCards());
+		dispatch(endStudying());
+	};
 
 	return (
 		<section className='studypage fadeIn'>
@@ -14,7 +47,7 @@ export default function Studypage() {
 				<button onClick={() => dispatch(startStudying())} className='start-btn'>
 					Start
 				</button>
-				<button onClick={() => dispatch(endStudying())} className='end-btn'>
+				<button onClick={handleStudyEnd} className='end-btn'>
 					End
 				</button>
 			</div>
@@ -22,11 +55,17 @@ export default function Studypage() {
 				<article className='study-review'>
 					{/* <h2>Review</h2> */}
 					<ReviewArea />
-				</article>
-				<article className='study-decks'>
-					<h2>Decks</h2>
-					<DeckList />
-				</article>
+				</article>{' '}
+				{isStudying ? (
+					''
+				) : (
+					<>
+						<article className='study-decks'>
+							<h2>Decks</h2>
+							<DeckList />
+						</article>
+					</>
+				)}{' '}
 			</div>
 		</section>
 	);

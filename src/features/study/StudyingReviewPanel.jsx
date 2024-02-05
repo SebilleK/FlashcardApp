@@ -100,18 +100,24 @@ export default function StudyingReviewPanel() {
 	return (
 		<article className='studying-review-panel'>
 			<h2>{activeDeck.name}</h2>
+			<h2>
+				{' '}
+				Progress: {currentCardIndex + 1} / {activeDeck.flashcards.length}
+			</h2>
 			<div className='studying-interface'>
-				<p className='question'>{activeDeck.flashcards[currentCardIndex].question}</p>
-				{showAnswerToggle && <p className='answer'>{activeDeck.flashcards[currentCardIndex].answer}</p>}
+				<article className='current-flashcard'>
+					<p className='question'>{activeDeck.flashcards[currentCardIndex].question}</p>
+					{showAnswerToggle && <p className='answer'>{activeDeck.flashcards[currentCardIndex].answer}</p>}
 
-				<button onClick={handleShowAnswer}>{showAnswerToggle ? 'Hide Answer' : 'Show Answer'}</button>
-				{showAnswerToggle && (
-					<>
-						<button onClick={handleMistake}>Rever Novamente 🔁</button>
+					<button onClick={handleShowAnswer}>{showAnswerToggle ? 'Hide Answer' : 'Show Answer'}</button>
+					{showAnswerToggle && (
+						<>
+							<button onClick={handleMistake}>Review Again 🔁</button>
 
-						{activeDeck.name === 'Review Flashcards' ? <button onClick={handleDeckRemoval}>Remover Flashcard ✅</button> : <button onClick={handleNextCard}>Certo ✅</button>}
-					</>
-				)}
+							{activeDeck.name === 'Review Flashcards' ? <button onClick={handleDeckRemoval}>Remove Flashcard ✅</button> : <button onClick={handleNextCard}>Correct ✅</button>}
+						</>
+					)}
+				</article>
 
 				{/* <button onClick={handleNextCard}>Next Card</button> */}
 			</div>

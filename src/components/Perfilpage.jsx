@@ -12,7 +12,7 @@ export default function Perfilpage() {
 	};
 
 	return (
-		<section className='text-gray-600 body-font bg-gray-100 fadeIn'>
+		<section className='page-extend text-gray-600 body-font bg-gray-100 fadeIn'>
 			{isEditing ? (
 				<ProfileEdit />
 			) : (

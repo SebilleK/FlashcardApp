@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import DeckList from './DeckList';
+import DeckListInventory from './DeckListInventory';
 import { updateDecks } from '../authentication/authSlice';
 import { setDeckEditing, setFlashcardEditing, setActiveFlashcard, setActiveDeck, setDeckCreating } from '../features/edit/editSlice';
 import FlashcardEdit from '../features/edit/FlashcardEdit';
@@ -81,7 +81,7 @@ export default function InventoryPage() {
 
 	return (
 		<>
-			<section className='inventorypage text-gray-600 bg-gray-100 body-font fadeIn'>
+			<section className='inventorypage page-extend text-gray-600 bg-gray-100 body-font fadeIn'>
 				{isDeckEditing ? (
 					// deck edit form page
 					<DeckEdit />
@@ -111,12 +111,12 @@ export default function InventoryPage() {
 							)}
 						</div>
 						{isSmallScreen ? <p className='text-center text-red-500 mt-4 font-medium'>To browse, edit and/or delete existing decks/flashcards please use a larger device.</p> : null}
-						<div className='hide-in-small-screen'>
+						<div className='hide-in-small-screen container-for-inventory'>
 							{/*! // popup flashcard edit */}
 							{isFlashcardEditing ? <FlashcardEdit /> : null}
 							<div className='deck-fashcards-container flex items-center justify-center py-12'>
-								<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center decklist-inventory'>
-									<DeckList />
+								<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center'>
+									<DeckListInventory />
 								</div>
 
 								<div className='hide-in-small-screen grid flex-grow h-32 card bg-base-300 rounded-box place-items-center p-4'>
