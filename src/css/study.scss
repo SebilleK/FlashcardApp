@@ -1,9 +1,4 @@
-/* hide scrollbar on most browsers */
-::-webkit-scrollbar {
-	display: none;
-}
-
-/* Study Page */
+/* STUDY Page */
 .studypage {
 	background: #f3f4f6;
 	padding-top: 3rem;
@@ -169,15 +164,25 @@
 	}
 }
 
-/* Inventory Page */
+/* INVENTORY Page */
 .inventorypage {
 	margin-bottom: 5rem;
 
-	.table-inventory {
-		flex: 6;
+	.tabela-inventory {
+		width: 55rem;
 		border: 1px solid #3b82f6;
+		font-size: 1.2rem;
+		text-align: center;
 
-		tr {
+		th {
+			background: #3b82f6;
+			border: 1px solid white;
+			color: white;
+			width: 2rem;
+		}
+
+		tr,
+		td {
 			border: 1px solid #3b82f6;
 		}
 
@@ -254,7 +259,7 @@
 	}
 }
 
-/* ALL Media Queries */
+/* MEDIA QUERIES */
 @media screen and (max-width: 1000px) {
 	/* Study Page */
 	.study-container {
@@ -300,6 +305,8 @@
 	}
 }
 
+/* SPECIFIC COMPONENTS */
+
 /* Deck List (study)*/
 .decks-list {
 	display: grid;
@@ -329,11 +336,12 @@
 }
 /* Deck List (inventory) */
 .decks-list-inventory {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+
 	.active-deck {
 		background-color: #f59e0b;
 	}
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
 
 	ul {
 		display: flex;
@@ -366,14 +374,71 @@
 	}
 }
 
-/* UI/UX centric fixes */
+/* UI/UX CHANGES */
 
 /* make the pages a bit bigger when need be */
 .page-extend {
 	padding: 4rem 0rem 3rem 0rem;
 }
 
-/* Animations */
+/* dark mode fix */
+@media (prefers-color-scheme: dark) {
+	:root {
+		h1,
+		h2,
+		div,
+		p,
+		section,
+		span,
+		a {
+			color: white;
+		}
+		section,
+		body {
+			background-color: #041b3a;
+		}
+
+		header,
+		footer {
+			background-color: #041b3a;
+		}
+
+		button {
+			background-color: #0084ff38;
+
+			&:hover {
+				background-color: #0084ff;
+			}
+		}
+
+		div,
+		label,
+		input {
+			color: white;
+
+			background-color: #041b3a;
+		}
+
+		article {
+			color: black;
+		}
+
+		.studying-review-panel {
+			.current-flashcard {
+				p {
+					color: black;
+				}
+			}
+		}
+	}
+}
+
+/* hide scrollbar on most browsers */
+::-webkit-scrollbar {
+	display: none;
+}
+
+/* ANIMATIONS */
 .fadeIn {
 	-webkit-animation-name: fadeIn;
 	animation-name: fadeIn;

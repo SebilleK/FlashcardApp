@@ -121,25 +121,25 @@ export default function InventoryPage() {
 
 								<div className='hide-in-small-screen grid flex-grow h-32 card bg-base-300 rounded-box place-items-center p-4'>
 									{activeDeck ? (
-										<table className='table table-xs w-full table-inventory'>
+										<table className='tabela-inventory'>
 											<thead>
 												<tr className=''>
-													<th className='py-2'>Flashcard Id</th>
-													<th className='py-2'>Question</th>
-													<th className='py-2'>Answer</th>
-													<th className='py-2'>Deck</th>
-													<th className='py-2'>✎ Edit</th>
-													<th className='py-2'>🗑️ Delete</th>
+													<th className=''>Flashcard Id</th>
+													<th className=''>Question</th>
+													<th className=''>Answer</th>
+													<th className=''>Deck</th>
+													<th className=''>✎</th>
+													<th className=''>🗑️</th>
 												</tr>
 											</thead>
 											<tbody>
 												{activeDeck.flashcards.map(flashcard => (
 													<tr key={flashcard.id} className='border-t'>
-														<td className='py-2'>{flashcard.id}</td>
-														<td className='py-2'>{flashcard.question}</td>
-														<td className='py-2'>{flashcard.answer}</td>
-														<td className='py-2'>{activeDeck.name}</td>
-														<td className='py-2'>
+														<td className=''>{flashcard.id}</td>
+														<td className=''>{flashcard.question}</td>
+														<td className=''>{flashcard.answer}</td>
+														<td className=''>{activeDeck.name}</td>
+														<td className=''>
 															<button
 																onClick={() => handleEditFlashcard(flashcard.id)}
 																className='inline-flex text-white bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-600 rounded text-lg'
