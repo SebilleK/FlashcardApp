@@ -7,6 +7,12 @@ export default function Footer() {
 					<a href='https://github.com/SebilleK' className='text-gray-600 ml-1' rel='noopener noreferrer' target='_blank'>
 						@SebilleK
 					</a>
+					<br />
+					This app was created as part of a frontend development course. You can visit its GitHub repository
+					<a href='https://github.com/SebilleK/FlashcardApp' className='text-gray-600 ml-2' rel='noopener noreferrer' target='_blank'>
+						{' '}
+						here.
+					</a>
 				</p>
 			</div>
 		</footer>

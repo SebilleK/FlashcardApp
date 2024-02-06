@@ -7,7 +7,7 @@ export default function DeckEdit() {
 	const activeDeckId = useSelector(state => state.edit.activeDeck);
 	const userDecks = useSelector(state => state.auth.user.decks);
 	const newFlashcards = useSelector(state => state.edit.newFlashcardsToAdd);
-	
+
 	// find active deck
 	const activeDeck = userDecks.find(deck => deck.id === activeDeckId);
 
@@ -21,7 +21,9 @@ export default function DeckEdit() {
 			return;
 		}
 
-		// update the deck info and add all the flashcards to it
+		console.log('olddecks:', userDecks);
+
+		//! update the deck info and add all the flashcards to it (be aware the user can only be adding flashcards)
 		const updatedDecks = userDecks.map(deck => {
 			if (deck.id === activeDeckId && newName !== '') {
 				return {
@@ -29,11 +31,13 @@ export default function DeckEdit() {
 					name: newName,
 					flashcards: [...newFlashcards, ...deck.flashcards], // Add new flashcards to the deck
 				};
-			} else {
+			} else if (deck.id === activeDeckId && newName === '') {
 				return {
 					...deck,
 					flashcards: [...newFlashcards, ...deck.flashcards],
 				};
+			} else {
+				return deck;
 			}
 		});
 
