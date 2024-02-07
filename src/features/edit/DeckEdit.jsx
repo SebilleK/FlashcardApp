@@ -23,7 +23,7 @@ export default function DeckEdit() {
 
 		console.log('olddecks:', userDecks);
 
-		//! update the deck info and add all the flashcards to it (be aware the user can only be adding flashcards)
+		//! update the deck info and add all the flashcards to it (be aware the user can only be adding flashcards, as such the additional «if» statement)
 		const updatedDecks = userDecks.map(deck => {
 			if (deck.id === activeDeckId && newName !== '') {
 				return {
@@ -51,6 +51,8 @@ export default function DeckEdit() {
 		dispatch(setDeckEditing());
 	};
 
+
+	// save the new flashcard
 	const saveNewFlashcard = () => {
 		const newFlashcard = {
 			question: document.getElementById('question').value.trim(),
@@ -60,7 +62,6 @@ export default function DeckEdit() {
 
 		// add the new flashcard to the state
 		dispatch(setNewFlashcardToAdd(newFlashcard));
-		console.log('adding new flashcard:', newFlashcard);
 		// clear input fields
 		document.getElementById('question').value = '';
 		document.getElementById('answer').value = '';

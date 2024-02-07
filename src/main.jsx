@@ -14,8 +14,7 @@ import { Provider } from 'react-redux';
 import store from './app/store.js';
 
 /* Styling */
-/* import './main.css';
-import './output.css'; */
+/* Personalized: here | Tailwind: linked in index.html */
 import './css/study.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -10,7 +10,6 @@ export default function DeckList() {
 		dispatch(deckSelect(deckId));
 	}
 
-
 	return (
 		<article className='decks-list'>
 			<ul>

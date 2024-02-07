@@ -12,6 +12,7 @@ export default function LoginLogoutpage() {
 	const userData = useSelector(state => state.auth.user);
 	const loginError = useSelector(state => state.auth.loginError);
 
+	// fetch user data
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -36,7 +37,7 @@ export default function LoginLogoutpage() {
 		let usernameInput = document.getElementById('username').value;
 		let passwordInput = document.getElementById('password').value;
 
-		/* Find the user w/ correct credentials, if any */
+		// Find the user w/ correct credentials, if any
 		const user = userData.find(user => user.username === usernameInput && user.password === passwordInput);
 
 		if (user) {
@@ -55,36 +56,10 @@ export default function LoginLogoutpage() {
 		}
 	}
 
-	{
-		/* <h1>Welcome!😸</h1>
-					<div className='login-info'>
-						<p>You are currently logged in.</p>
-						<p>
-							Check out your <Link to='/perfil'>profile</Link>, <Link to='/study'>study</Link> or log out below.
-						</p>
-					</div>
-					<button className='logout-btn' onClick={() => dispatch(logout())}>
-						↩️ Logout
-					</button> */
-	}
-	{
-		/* <h1>Login</h1>
-					<form action='' className='login-form'>
-						<label htmlFor='username'>Username</label>
-						<input type='text' name='username' id='username' />
-						<label htmlFor='password'>Password</label>
-						<input type='password' name='password' id='password' />
-						<button className='login-btn' type='button' onClick={checkLogin}>
-							🔐 Login
-						</button>
-					</form>
-					{loginError && <p className='error-message'>Login failed. Please check your credentials and try again.</p>} */
-	}
-
 	return (
 		<>
 			{isAuthenticated ? (
-				<>{/* redirecting to profile page above */}</>
+				<>{/* redirecting to profile page as shown above */}</>
 			) : (
 				<section className='page-extend text-gray-600 body-font bg-gray-100 flex items-center justify-center fadeIn'>
 					<div className=' container mx-4 flex px-5 py-24'>

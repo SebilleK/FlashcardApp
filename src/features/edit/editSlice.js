@@ -40,7 +40,7 @@ const editSlice = createSlice({
 			state.activeDeck = action.payload;
 		},
 		setNewFlashcardToAdd: (state, action) => {
-			// Instead of using += to add a new flashcard, spread operator is better to properly update the state array
+			// spread operator => to properly update the state array
 			state.newFlashcardsToAdd = [...state.newFlashcardsToAdd, action.payload];
 		},
 		clearNewFlashcardsToAdd: state => {

@@ -6,7 +6,6 @@ import ErrorMessage from '../../components/ErrorMessage';
 export default function DeckCreate() {
 	const dispatch = useDispatch();
 	const userDecks = useSelector(state => state.auth.user.decks);
-	const newFlashcards = useSelector(state => state.edit.newFlashcardsToAdd);
 	const savedModificationsAlert = useSelector(state => state.edit.savedModificationsAlert);
 
 	// save on enter

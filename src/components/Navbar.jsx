@@ -10,7 +10,7 @@ export default function Navbar({ auth }) {
 
 	const authState = useSelector(state => state.auth.isAuthenticated);
 
-	// to avoid blank page on logout (user could be on a auth only page)
+	// to avoid blank page on logout (user could be on a auth only page) => use redirection (navigate)
 	const handleLogClick = () => {
 		if (authState) {
 			dispatch(logout());
@@ -28,7 +28,7 @@ export default function Navbar({ auth }) {
 
 					<span className='ml-1 text-xl'>FlashcardApp</span>
 				</a>
-				<nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
+				<nav className='navbar md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
 					<a className='mr-5 hover:text-gray-900'>
 						<Link to='/'>Home</Link>
 					</a>

@@ -7,8 +7,6 @@ export default function StudyingReviewPanel() {
 	const dispatch = useDispatch();
 	//! Id of active deck
 	const activeDeckId = useSelector(state => state.study.activeDeck);
-	/* TROUBLESHOOTING WITH SELECTORS — user.decks works */
-	/* const userDecks = useSelector(state => state.auth.userDecks);  */
 
 	//! user decks
 	const userDecks = useSelector(state => state.auth.user.decks);
@@ -28,15 +26,8 @@ export default function StudyingReviewPanel() {
 	//! right cards for deck removal
 	const rightCards = useSelector(state => state.study.rightCards);
 
-	// review deck (found by name)
-	/* 	const reviewDeck = userDecks.find(deck => deck.name === 'Review Flashcards'); */
-
 	// NEXT CARD HANDLERS
 	// !! general
-
-	// !? PROBLEM 1* A última carta não aparece no deck de review se adicionada a ele. problema de assincronismo ? da
-	// !? condição do if? console logs para tentar determinar o problema.
-	//! FIXED. SEE USEEFFECT BELOW.
 
 	//! next card handler for all decks
 	const handleNextCard = () => {
@@ -45,7 +36,7 @@ export default function StudyingReviewPanel() {
 			console.log(rightCards);
 			const updatedUserDecks = userDecks.map(deck => {
 				// if the deck is the review deck, remove the duplicate wrong cards if any
-				// additionally, remove all cards marked as right!!
+				// additionally, remove all cards marked as right
 				if (deck.name === 'Review Flashcards') {
 					const uniqueWrongCards = wrongCards.filter(wrongCard => !deck.flashcards.some(card => card.id === wrongCard.id));
 					const removeRightCards = deck.flashcards.filter(card => !rightCards.some(rightCard => card.id === rightCard.id));
@@ -68,26 +59,24 @@ export default function StudyingReviewPanel() {
 		}
 	};
 
-	// !! if deck is review deck (card removal)
+	//! if deck is review deck (card removal)
 	const handleDeckRemoval = () => {
 		dispatch(addToRightCards(activeDeck.flashcards[currentCardIndex]));
 	};
 
-	// !! if answer is incorrect (*rever novamente*)
+	//! if answer is incorrect (*Review Again*)
 	const handleMistake = () => {
-		/* logic to handle mistake */
-		/* duplicates are handles on the nextcard function */
-
+		/* duplicates are handled on the handleNextCard function */
 		dispatch(addToWrongCards(activeDeck.flashcards[currentCardIndex]));
 	};
 
-	// ! UseEffect hook = FIX FOR PROBLEM 1*
-	//? this is needed so that the wrongCards state is updated before the nextCard function is called, it's an asyncronism problem. additionally, it prevents wrong indexing on the nextCard function for the review deck (soo the
-	//? right cards array also works for card removal after)
+	// ! UseEffect hook = IMPORTANT FIX
+	//? this is needed so that the wrongCards state is updated before the nextCard function is called, otherwise an asyncronism problem would occur and the last flashcard, if marked for review, wouldn't appear in the review deck. Although not the best practice, using useEffect prevents wrong indexing on the nextCard function for the review deck, fixing this.
+
 	useEffect(() => {
-		// Check if the wrongCards state is not empty!!
+		// Check if the wrongCards state is not empty
 		if (wrongCards.length > 0 || rightCards.length > 0) {
-			// Wait for the state to update!!
+			// Wait for the state to update before calling the nextCard function
 			handleNextCard();
 		}
 	}, [wrongCards, rightCards]);
@@ -105,9 +94,9 @@ export default function StudyingReviewPanel() {
 				Progress: {currentCardIndex + 1} / {activeDeck.flashcards.length}
 			</h2>
 			<div className='studying-interface'>
-				<article className='current-flashcard'>
+				<article key={activeDeck.flashcards[currentCardIndex].id} className='current-flashcard flipInY'>
 					<p className='question'>{activeDeck.flashcards[currentCardIndex].question}</p>
-					{showAnswerToggle && <p className='answer'>{activeDeck.flashcards[currentCardIndex].answer}</p>}
+					{showAnswerToggle && <p className='answer fadeIn'>{activeDeck.flashcards[currentCardIndex].answer}</p>}
 
 					<button onClick={handleShowAnswer}>{showAnswerToggle ? 'Hide Answer' : 'Show Answer'}</button>
 					{showAnswerToggle && (
@@ -118,8 +107,6 @@ export default function StudyingReviewPanel() {
 						</>
 					)}
 				</article>
-
-				{/* <button onClick={handleNextCard}>Next Card</button> */}
 			</div>
 		</article>
 	);

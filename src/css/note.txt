@@ -1,4 +1,0 @@
-Some personalized styles for:
-
-> animations
-> the study page and the inventory page

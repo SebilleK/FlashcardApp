@@ -1,5 +1,4 @@
 import IntroPic from '../assets/intropic.jpg';
-import { Link } from 'react-router-dom';
 
 export default function Homepage() {
 	return (
@@ -15,14 +14,7 @@ export default function Homepage() {
 					</h1>
 					<p className='mb-4 leading-relaxed text-lg text-gray-900'>
 						Hello and welcome to FlashcardApp. Here you can study your own short flashcard decks to easily remember new information: be it vocabulary, math formulas, trivia, etc. 📚
-						{/* <br className='hidden lg:inline-block' />
-						Login below and start learning! 📖 */}
 					</p>
-					{/* 					<div className='flex justify-center'>
-						<button className='inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg'>
-							<Link to='/login'>Login </Link>
-						</button>
-					</div> */}
 					<p className='  mb-4 leading-relaxed text-lg text-gray-900 '>Create your own decks, start learning & review the flashcards you missed! 🔎</p>
 				</div>
 			</div>

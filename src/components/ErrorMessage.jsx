@@ -9,7 +9,7 @@ export default function ErrorMessage() {
 	const loginError = useSelector(state => state.auth.loginError);
 	// for edit user profile info error
 	const alert = useSelector(state => state.edit.alert);
-	// for succeful deck modification
+	// for successful deck modification
 	const savedModificationsAlert = useSelector(state => state.edit.savedModificationsAlert);
 
 	useEffect(() => {

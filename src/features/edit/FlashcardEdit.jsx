@@ -4,7 +4,6 @@ import { updateDecks } from '../../authentication/authSlice';
 
 export default function FlashcardEdit() {
 	const dispatch = useDispatch();
-	const isFlashcardEditing = useSelector(state => state.edit.isFlashcardEditing);
 
 	// active flashcard id and active user deck id
 	const activeFlashcard = useSelector(state => state.edit.activeFlashcard);
@@ -17,7 +16,6 @@ export default function FlashcardEdit() {
 
 	//!! input control & save changes
 	const handleSave = () => {
-		/* console.log(flashcardToEdit); */
 
 		// check if inputs are valid
 		const questionInput = document.getElementById('question').value.trim();
@@ -48,7 +46,7 @@ export default function FlashcardEdit() {
 		// update the flashcard with a new decks array
 		const updatedDecks = userDecks.map(deck => {
 			if (deck.id === activeDeckId) {
-				// Create a copy of the deck (deep copy!)
+				// Create a copy of the deck (deep copy)
 				const updatedDeck = { ...deck, flashcards: [...deck.flashcards] };
 
 				// Find the index of the flashcard to update

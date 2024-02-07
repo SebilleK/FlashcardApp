@@ -53,7 +53,6 @@ export default function Studypage() {
 			</div>
 			<div className='study-container'>
 				<article className='study-review'>
-					{/* <h2>Review</h2> */}
 					<ReviewArea />
 				</article>{' '}
 				{isStudying ? (

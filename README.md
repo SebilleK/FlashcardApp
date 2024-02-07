@@ -60,7 +60,7 @@ This project used:
 
 \*\* Feature available only to devices with screen width upwards of 600px.
 
-### Profile
+### Profile:
 
 - See a simplified profile, with their currently registered email and username, and their deck count.
 
@@ -77,4 +77,4 @@ This project used:
 
 - [SVG Repo](https://www.svgrepo.com/): Source for Logo SVG.
 - [Unsplash](https://unsplash.com/): Used for Homepage Intro Image.
-- [The App Guruz - CSS Animations](https://www.theappguruz.com/tag-tools/web/CSSAnimations/): Fade-In and Shake Animations.
+- [The App Guruz - CSS Animations](https://www.theappguruz.com/tag-tools/web/CSSAnimations/): Fade-In, Shake & Flip Animations.

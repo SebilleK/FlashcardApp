@@ -1,16 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleNotification } from '../features/study/studySlice';
+import { useSelector } from 'react-redux';
 import StudyingReviewPanel from '../features/study/StudyingReviewPanel';
 import FinishedStudyingNotif from '../features/study/FinishedStudyingNotif';
 
 export default function ReviewArea() {
-	const dispatch = useDispatch();
 	const activeDeckId = useSelector(state => state.study.activeDeck);
 	const userDecks = useSelector(state => state.auth.user.decks);
 	const isStudying = useSelector(state => state.study.isStudying);
 
 	// finding the deck to study with the active deck id
-
 	const activeDeck = userDecks.find(deck => deck.id === activeDeckId);
 
 	// notification on deck completion toggle

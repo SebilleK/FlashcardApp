@@ -13,7 +13,7 @@ export default function InventoryPage() {
 	const activeDeckId = useSelector(state => state.study.activeDeck);
 	// find active deck
 	const activeDeck = userDecks.find(deck => deck.id === activeDeckId);
-	// is editing/creating flashcard or deck ?
+	// is editing/creating deck or editing flashcard
 	const isFlashcardEditing = useSelector(state => state.edit.isFlashcardEditing);
 	const isDeckEditing = useSelector(state => state.edit.isDeckEditing);
 	const isDeckCreating = useSelector(state => state.edit.isDeckCreating);
@@ -21,7 +21,7 @@ export default function InventoryPage() {
 	//! edit and delete existing flashcards per deck
 	const handleEditFlashcard = flashcardId => {
 		console.log(flashcardId, 'edit');
-		//set the active flashcard and open the edit flashcard menu
+		// set the active flashcard and open the edit flashcard menu
 		dispatch(setActiveFlashcard(flashcardId));
 		dispatch(setFlashcardEditing());
 	};
@@ -112,7 +112,6 @@ export default function InventoryPage() {
 						</div>
 						{isSmallScreen ? <p className='text-center text-red-500 mt-4 font-medium'>To browse, edit and/or delete existing decks/flashcards please use a larger device.</p> : null}
 						<div className='hide-in-small-screen container-for-inventory'>
-							{/*! // popup flashcard edit */}
 							{isFlashcardEditing ? <FlashcardEdit /> : null}
 							<div className='deck-fashcards-container flex items-center justify-center py-12'>
 								<div className='grid flex-grow h-32 card bg-base-300 rounded-box place-items-center'>

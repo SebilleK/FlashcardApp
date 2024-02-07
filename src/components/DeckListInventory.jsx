@@ -16,9 +16,9 @@ export default function DeckListInventory() {
 			<ul>
 				{decks.map(
 					deck =>
-                        // if deck is the review deck don't display (irrelevant for editing in inventory)
-                        // add a class for styling if the deck is active
+						// if deck is the review deck don't display (irrelevant for editing in inventory)
 						deck.name !== 'Review Flashcards' && (
+							// add a class for styling if the deck is active
 							<li onClick={() => handleDeckClick(deck.id)} key={deck.id} className={activeDeckId === deck.id ? 'active-deck' : ''}>
 								{deck.name}
 							</li>
