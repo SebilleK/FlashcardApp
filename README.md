@@ -4,6 +4,15 @@ This application was developed as a final project for a frontend webdev course.
 
 FlashcardApp is a web application (Frontend only) designed for reviewing question-answer flashcards based on Spaced Repetition Systems (SRS). Users can create and organize decks and their respective flashcards to study them, facilitating the learning and retention of diverse information. The application operates in a manner similar to a simplified version of popular tools like Anki ([AnkiWeb](https://apps.ankiweb.net/)) or Brainscape ([Brainscape](https://www.brainscape.com/)), for smaller sets of information: the user reviews a deck and all wrong flashcards are stored for a later review session, allowing the user to focus on their mistakes.
 
+## Live Demo
+
+[Check out the live demo on Netlify](https://netlify-deploy--taupe-kataifi-04ce4d.netlify.app/login)
+
+
+![Study](demo1.gif)
+![Inventory](demo2.gif)
+
+
 ## Installation and Setup
 
 If you want to try it out for yourself you can follow these steps to run the project on your local machine:
