@@ -9,8 +9,8 @@ FlashcardApp is a web application (Frontend only) designed for reviewing questio
 [Check out the live demo on Netlify](https://netlify-deploy--taupe-kataifi-04ce4d.netlify.app/login)
 
 
-![Study](demo1.gif)
-![Inventory](demo2.gif)
+![Study](demo/demo1.gif)
+![Inventory](demo/demo2.gif)
 
 
 ## Installation and Setup
