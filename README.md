@@ -6,7 +6,7 @@ FlashcardApp is a web application (Frontend only) designed for reviewing questio
 
 ## Live Demo [![Netlify Status](https://api.netlify.com/api/v1/badges/f2a11a5f-ef09-482e-bef4-21e07896ad8b/deploy-status)](https://app.netlify.com/sites/sebillekflashcards/deploys)
 
-[Check out the live demo on Netlify](https://sebillekflashcards.netlify.app/)
+[Check out the live demo on Netlify](https://sebillekflashcards.netlify.app/){:target="_blank"}
 
 
 ![Study](demo/demo1.gif)
@@ -79,11 +79,11 @@ This project used:
 
 ### Component Styling:
 
-- [Tailblocks](https://tailblocks.cc/): Base styling for all pages.
-- [Layouts for Tailwind](https://layoutsfortailwind.lalokalabs.dev/): Used for helping with some layouts.
+- [Tailblocks](https://tailblocks.cc/){:target="_blank"}: Base styling for all pages.
+- [Layouts for Tailwind](https://layoutsfortailwind.lalokalabs.dev/){:target="_blank"}: Used for helping with some layouts.
 
 ### Other Resources:
 
-- [SVG Repo](https://www.svgrepo.com/): Source for Logo SVG.
-- [Unsplash](https://unsplash.com/): Used for Homepage Intro Image.
-- [The App Guruz - CSS Animations](https://www.theappguruz.com/tag-tools/web/CSSAnimations/): Fade-In, Shake & Flip Animations.
+- [SVG Repo](https://www.svgrepo.com/){:target="_blank"}: Source for Logo SVG.
+- [Unsplash](https://unsplash.com/){:target="_blank"}: Used for Homepage Intro Image.
+- [The App Guruz - CSS Animations](https://www.theappguruz.com/tag-tools/web/CSSAnimations/){:target="_blank"}: Fade-In, Shake & Flip Animations.
