@@ -6,12 +6,13 @@ FlashcardApp is a web application (Frontend only) designed for reviewing questio
 
 ## Live Demo [![Netlify Status](https://api.netlify.com/api/v1/badges/f2a11a5f-ef09-482e-bef4-21e07896ad8b/deploy-status)](https://app.netlify.com/sites/sebillekflashcards/deploys)
 
-[Check out the live demo on Netlify](https://sebillekflashcards.netlify.app/)
+[Check out the live demo on Netlify](https://sebillekflashcards.netlify.app/)\*\*
 
 
 ![Study](demo/demo1.gif)
 ![Inventory](demo/demo2.gif)
 
+\*\* Please note that for simplicity's sake, the live demo does not use JSON Server API as the project does; instead, it relies on a static JSON file.
 
 ## Installation and Setup
 
