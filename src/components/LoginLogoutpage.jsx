@@ -3,29 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, loginFailed, setUserData, setLoginError } from '../authentication/authSlice';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
+import dataJSON from '../data.json';
 
 export default function LoginLogoutpage() {
 	const dispatch = useDispatch();
+	// fetch user data on the project itself before anything
+	//! this is only for the Netlify demo — JSON Server is used for the actual project
+	dispatch(setUserData(dataJSON));
 	// for after login redirect
 	const navigate = useNavigate();
+
 	const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-	const userData = useSelector(state => state.auth.user);
+	const userData = useSelector(state => state.auth.user.users);
 	const loginError = useSelector(state => state.auth.loginError);
-
-	// fetch user data
-	useEffect(() => {
-		const fetchUserData = async () => {
-			try {
-				const response = await fetch('http://localhost:3001/users');
-				const data = await response.json();
-				dispatch(setUserData(data));
-			} catch (error) {
-				console.error('Error while fetching data:', error);
-			}
-		};
-
-		fetchUserData();
-	}, [dispatch]);
 
 	const handleKeyDown = event => {
 		if (event.key === 'Enter') {
